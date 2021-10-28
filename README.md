@@ -45,7 +45,7 @@ Ou seja, arquivos no diretório `/api/*` não são páginas React.
 
 ## Deployment
 
-[Next.js deployment documentation](https://nextjs.org/docs/deployment
+[Next.js deployment documentation](https://nextjs.org/docs/deployment)
 
 ---
 
