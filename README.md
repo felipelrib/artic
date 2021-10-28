@@ -19,4 +19,10 @@ Plataforma web para facilitar encomendas artísticas
 
 ---
 
+### [Backlog do Produto](https://github.com/marscos/artic/projects/1#column-16510483)
+
+### [Backlog Sprint 01](https://github.com/marscos/artic/projects/2)
+
+---
+
 Desenvolvido para a disciplina de Prática em Desenvolvimento de Software UFMG 2021/02
