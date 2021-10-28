@@ -25,4 +25,28 @@ Plataforma web para facilitar encomendas artísticas
 
 ---
 
+## Iniciando ambiente de desenvolvimento
+
+```
+npm run dev
+```
+
+Inicia o app em modo de desenvolvimento na URL [http://localhost:3000](http://localhost:3000), com *hot reloading*.
+
+[As rotas de API](https://nextjs.org/docs/api-routes/introduction) são expostas no caminho [http://localhost:3000/api/](http://localhost:3000/api/). 
+
+Ou seja, arquivos no diretório `/api/*` não são páginas React.
+
+## Conteúdos oficiais sobre Next.js
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub repository](https://github.com/vercel/next.js/)
+
+## Deployment
+
+[Next.js deployment documentation](https://nextjs.org/docs/deployment
+
+---
+
 Desenvolvido para a disciplina de Prática em Desenvolvimento de Software UFMG 2021/02
