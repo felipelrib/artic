@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/artic-users",
+      "handler": "artic-user.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artic-users/count",
+      "handler": "artic-user.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artic-users/:id",
+      "handler": "artic-user.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/artic-users",
+      "handler": "artic-user.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/artic-users/:id",
+      "handler": "artic-user.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/artic-users/:id",
+      "handler": "artic-user.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

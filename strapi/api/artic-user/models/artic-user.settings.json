@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artic_users",
+  "info": {
+    "name": "Artic User"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Username": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 20,
+      "required": true,
+      "minLength": 3
+    },
+    "Name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "Bio": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "Picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
