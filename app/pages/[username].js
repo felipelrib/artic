@@ -12,11 +12,13 @@ function convertDateToPT(dateString) {
 
 async function fetchUser(username) {
   const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
-  let user = null;
   if (response.ok) {
-    user = await response.json();
+    let users = await response.json();
+    if (users.length !== 0) {
+      return users[0];
+    }
   }
-  return user[0];
+  return null;
 }
 
 export async function getServerSideProps({ params }) {
