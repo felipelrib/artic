@@ -6,12 +6,12 @@ import 'dayjs/locale/pt';
 import { FaCalendarCheck } from 'react-icons/fa';
 
 function convertDateToPT(dateString) {
-  const date = new Date(dateString)
+  const date = new Date(dateString);
   return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
 }
 
 async function fetchUser(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`)
+  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
   let user = null;
   if (response.ok) {
     user = await response.json();
@@ -28,7 +28,7 @@ export async function getServerSideProps({ params }) {
 
 export default function User({ user }) {
   const router = useRouter();
-  const username = router.query.username
+  const username = router.query.username;
   if (user === null) {
     return (<>
       <Head><title>Not Found</title></Head>
