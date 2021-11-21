@@ -10,17 +10,17 @@ function convertDateToPT(dateString) {
   return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
 }
 
-async function fetchUser(id) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/${id}`)
+async function fetchUser(username) {
+  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`)
   let user = null;
   if (response.ok) {
     user = await response.json();
   }
-  return user;
+  return user[0];
 }
 
 export async function getServerSideProps({ params }) {
-  const user = await fetchUser(params.id);
+  const user = await fetchUser(params.username);
   return {
     props: { user: user }
   };
@@ -28,11 +28,11 @@ export async function getServerSideProps({ params }) {
 
 export default function User({ user }) {
   const router = useRouter();
-  const id = router.query.id
+  const username = router.query.username
   if (user === null) {
     return (<>
       <Head><title>Not Found</title></Head>
-      <Text>Usuário {id} não encontrado</Text>
+      <Text>Usuário {username} não encontrado</Text>
     </>);
   }
   return (<>
