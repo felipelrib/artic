@@ -35,6 +35,14 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "albums": {
+      "via": "artic_user",
+      "collection": "album"
+    },
+    "arts": {
+      "via": "artic_user",
+      "collection": "art"
     }
   }
 }
