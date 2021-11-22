@@ -1,65 +1,60 @@
 import { useRouter } from 'next/router';
 
+import Head from 'next/head';
+
 import {
 	Avatar,
 	Badge,
 	Button,
 	Card,
-	Center,
 	Container,
 	Divider,
 	Group,
-	Grid,
 	Image,
 	Space,
 	SimpleGrid,
-	Title,
 	Text,
 	useMantineTheme,
 } from '@mantine/core';
 
-function fetchUser(username) {}
-
-async function fetchWorksByUser(username) {
-	try {
-		const response = await fetch(
-			`${process.env.STRAPI_API_URL}/artic-works/?Username=${username}`
-		);
-
-		if (response.ok) {
-			const worksByUser = await response.json();
-			return worksByUser;
+// TODO: Add user data to context
+async function fetchUser(username) {
+	console.log({ apiUrl: process.env.STRAPI_API_URL });
+	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
+	if (response.ok) {
+		let users = await response.json();
+		if (users.length !== 0) {
+			return users[0];
 		}
-	} catch (error) {
-		console.error({ error });
 	}
-
 	return null;
 }
 
+export async function getServerSideProps({ params }) {
+	const user = await fetchUser(params.username);
+	return {
+		props: { user: user },
+	};
+}
+
 function BasicArtistInfo({ user }) {
+	const photo = user.Picture ? `${process.env.STRAPI_API_URL}${user.Picture.url}` : undefined;
 	return (
 		<Container size='md' padding='sm'>
 			<Card withBorder>
 				<Group>
 					<Card.Section>
-						<Avatar alt='Foto do usuário' size='xl' />
+						<Avatar src={photo} alt='Foto do usuário' size='xl' />
+						{/* User profile pic */}
 					</Card.Section>
-					<Card.Section>
-						<Text weight={700} size='lg' style={{ lineHeight: 1.5 }}>
-							diegobarros
-						</Text>
-					</Card.Section>
-					<Card.Section>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ligula dui,
-						cursus a orci et, mattis efficitur massa. Nulla convallis volutpat velit vel
-						eleifend. Mauris quis quam mi. Nulla facilisi. Pellentesque tristique
-						sagittis finibus. Proin efficitur, quam id elementum venenatis, urna metus
-						tristique orci, a feugiat velit ipsum sit amet lacus. Ut sollicitudin
-						faucibus sapien. Pellentesque consequat ex at aliquam viverra. Duis
-						vestibulum metus et mi rutrum tempus. Donec erat justo, malesuada sed risus
-						at, consequat dictum metus. Nam posuere condimentum bibendum.{' '}
-					</Card.Section>
+					{user.Name && (
+						<Card.Section>
+							<Text weight={700} size='lg' style={{ lineHeight: 1.5 }}>
+								{user.Name}
+							</Text>
+						</Card.Section>
+					)}
+					{user.Bio && <Card.Section>{user.Bio}</Card.Section>}
 				</Group>
 			</Card>
 		</Container>
@@ -85,7 +80,10 @@ function WorkCard({ work }) {
 			<Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
 				<Text weight={500}>Nome da obra</Text>
 				<Badge color='pink' variant='light'>
-					On Sale
+					Tag 1
+				</Badge>
+				<Badge color='pink' variant='light'>
+					Tag 2
 				</Badge>
 			</Group>
 
@@ -102,26 +100,40 @@ function WorkCard({ work }) {
 	);
 }
 
-export default function WorksOfUser({ user, works }) {
+export default function WorksOfUser({ user }) {
 	const router = useRouter();
 	const { username } = router.query;
 
-	let placeholderArray = [1, 2, 3, 4, 5, 6];
+	let works = [1, 2, 3, 4, 5, 6]; // let { works } = user;
 
-	return (
+	return user ? (
 		<>
+			<Head>
+				<title>{username} | Obras</title>
+			</Head>
 			<BasicArtistInfo user={user} />
-			<Space h='xl' />
-			<Divider size='sm' />
-			<Space h='xl' />
-			<Space h='sm' />
-			<SimpleGrid cols={3} spacing='lg'>
-				{placeholderArray.map((work) => (
-					<Container m='sm' size='xs'>
-						<WorkCard work={work} />
-					</Container>
-				))}
-			</SimpleGrid>
+			{works && (
+				<>
+					<Space h='xl' />
+					<Divider size='sm' />
+					<Space h='xl' />
+					<Space h='sm' />
+					<SimpleGrid cols={3} spacing='lg'>
+						{works.map((work, idx) => (
+							<Container key={idx} m='sm' size='xs'>
+								<WorkCard work={work} />
+							</Container>
+						))}
+					</SimpleGrid>
+				</>
+			)}
+		</>
+	) : (
+		<>
+			<Head>
+				<title>Not Found</title>
+			</Head>
+			<Text>Usuário {username} não encontrado</Text>
 		</>
 	);
 }
