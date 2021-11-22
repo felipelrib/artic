@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "arts",
+  "info": {
+    "name": "Art",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "artic_user": {
+      "model": "artic-user",
+      "via": "arts"
+    },
+    "albums": {
+      "collection": "album",
+      "via": "arts",
+      "dominant": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "art_type": {
+      "via": "arts",
+      "model": "art-type"
+    },
+    "tags": {
+      "via": "arts",
+      "collection": "tag"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

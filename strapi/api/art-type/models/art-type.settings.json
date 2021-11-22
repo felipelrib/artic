@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "art_types",
+  "info": {
+    "name": "ArtType"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "arts": {
+      "via": "art_type",
+      "collection": "art"
+    }
+  }
+}
