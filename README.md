@@ -23,6 +23,8 @@ Plataforma web para facilitar encomendas artísticas
 
 ### [Backlog Sprint 01](https://github.com/marscos/artic/projects/2)
 
+### [Backlog Sprint 02](https://github.com/marscos/artic/projects/3)
+
 ---
 
 ## Iniciando ambiente de desenvolvimento
