@@ -78,7 +78,7 @@ function ArtCard({ art }) {
 				<Text weight={500}>{art.name}</Text>
 				<Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
 					{art.tags?.map((tag) => (
-						<Badge color='pink' variant='light'>
+						<Badge key={tag.id} color='pink' variant='light'>
 							{tag.name}
 						</Badge>
 					))}
