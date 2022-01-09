@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commissions",
+  "info": {
+    "name": "Commission",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "requester": {
+      "model": "artic-user"
+    },
+    "executor": {
+      "model": "artic-user"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "accepted": {
+      "type": "boolean"
+    },
+    "artwork": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
