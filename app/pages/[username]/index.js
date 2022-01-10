@@ -15,7 +15,19 @@ import {
 	SimpleGrid,
 	Text,
 	useMantineTheme,
+	Paper,
+
 } from '@mantine/core';
+
+import { getMonthsNames } from '@mantine/dates';
+
+import 'dayjs/locale/pt';
+
+
+function convertDateToPT(dateString) {
+  const date = new Date(dateString);
+  return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
+}
 
 // TODO: Add user data to context
 async function fetchUser(username) {
@@ -43,17 +55,28 @@ function BasicArtistInfo({ user }) {
 			<Card withBorder>
 				<Group>
 					<Card.Section>
-						<Avatar src={photo} alt='Foto do usuário' size='xl' />
-						{/* User profile pic */}
+						<Avatar src={photo} alt='Foto do usuário' size='200px' />
 					</Card.Section>
-					{user.Name && (
+					{(user.Name || user.Username || user.created_at || user.Bio) && (
 						<Card.Section>
-							<Text weight={700} size='lg' style={{ lineHeight: 1.5 }}>
-								{user.Name}
-							</Text>
+							{user.Name && (
+								<Text weight={700} size='lg' style={{ lineHeight: 1.5 }}>
+									{user.Name}
+								</Text>
+							)}
+							{user.Username && (
+								<Text style={{ lineHeight: 1.5 }}>
+									@{user.Username}
+								</Text>
+							)}
+							{user.created_at && (
+								<Text color='dimmed' style={{ lineHeight: 1.5 }}>
+									Entrou em {convertDateToPT(user.created_at)}
+								</Text>
+							)}
+							{user.Bio && <Card.Section>{user.Bio}</Card.Section>}
 						</Card.Section>
 					)}
-					{user.Bio && <Card.Section>{user.Bio}</Card.Section>}
 				</Group>
 			</Card>
 		</Container>
@@ -116,7 +139,13 @@ export default function WorksOfUser({ user }) {
 					<Divider size='sm' />
 					<Space h='xl' />
 					<Space h='sm' />
-					<SimpleGrid cols={3} spacing='lg'>
+					<SimpleGrid
+					cols={3}
+					spacing='lg'
+					breakpoints={[
+						{ maxWidth: 'md', cols: 2, spacing: 'md' },
+						{ maxWidth: 'sm', cols: 1, spacing: 'sm' },
+					]}>
 						{arts.map((art) => (
 							<Container key={art.id} m='sm' size='xs'>
 								<ArtCard art={art} />
