@@ -16,6 +16,7 @@ async function fetchArtwork(id) {
     if (response.ok) {
         let artwork = await response.json();
         if (artwork) {
+            artwork.media.url = `${process.env.STRAPI_URL}${artwork.media.url}`;
             return artwork;
         }
     }
@@ -33,7 +34,6 @@ export async function getServerSideProps({ params }) {
         });
         return {
             props: {
-                mediaBaseURL: process.env.STRAPI_API_URL,
                 artwork: artwork 
             }
         };
@@ -44,7 +44,7 @@ export async function getServerSideProps({ params }) {
     }
 }
 
-export default function Artwork({ mediaBaseURL, artwork }) {
+export default function Artwork({ artwork }) {
     return (<>
         <Head>
             <title>{artwork.name}</title>
@@ -54,7 +54,7 @@ export default function Artwork({ mediaBaseURL, artwork }) {
                 <Grid>
                     <Grid.Col span={12}>
                         <Container size="sm">
-                            <Image src={`${mediaBaseURL + artwork.media.url}`} />
+                            <Image src={artwork.media.url} />
                         </Container>
                     </Grid.Col>
                     <Grid.Col span={12}>
