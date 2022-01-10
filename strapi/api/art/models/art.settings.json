@@ -46,6 +46,12 @@
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
+    },
+    "views": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
     }
   }
 }
