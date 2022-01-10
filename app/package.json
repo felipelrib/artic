@@ -11,6 +11,7 @@
   "dependencies": {
     "@mantine/core": "^3.2.1",
     "@mantine/dates": "^3.1.8",
+    "@mantine/dropzone": "^3.5.4",
     "@mantine/hooks": "^3.2.1",
     "@mantine/next": "^3.1.8",
     "@mantine/rte": "^3.1.8",

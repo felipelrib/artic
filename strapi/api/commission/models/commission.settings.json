@@ -22,7 +22,8 @@
       "type": "datetime"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 600
     },
     "accepted": {
       "type": "boolean"

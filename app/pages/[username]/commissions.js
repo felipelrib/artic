@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import 'dayjs/locale/pt';
-import { getMonthsNames } from '@mantine/dates';
-import { Group, Space, Text, Title, Card, Container, SimpleGrid } from '@mantine/core';
+import { useState } from 'react';
+import { Button, Center, Group, Space, Text, Title, Card, Container, SimpleGrid, Pagination } from '@mantine/core';
+import { FaFileImage } from 'react-icons/fa';
+import { IMAGE_MIME_TYPE, Dropzone } from '@mantine/dropzone';
 
 const DateText = ({ datetime }) => {
   let date = new Date(datetime);
@@ -11,36 +13,88 @@ const DateText = ({ datetime }) => {
   return (<Text>{o.format(date)}</Text>);
 }
 
-const StatusText = ({accepted}) => {
+const StatusText = ({accepted, uploaded, className}) => {
   let color;
   let text;
   if (accepted === null || accepted === undefined) {
     color = "orange";
     text = "Pendente";
-  } else {
-    color = accepted ? "blue" : "red";
+  } else if (!uploaded) {
+    color = accepted ? "orange" : "red";
     text = accepted ? "Em progresso" : "Rejeitada";
+  } else {
+    color = "black";
+    text = "Concluída";
   }
   return (
-    <Text size="md" weight={700} style={{color: color}}>
+    <Text size="md" weight={700} style={{color: color}} className={className}>
       {text}
     </Text>
   );
 }
 
-const CommissionCard = ({commission}) => {
+function CommissionCard({commission, received}) {
+  let actions;
+  let borderColor;
+  if (received && commission.accepted === null) {
+    borderColor = "orange";
+    actions = 
+      <Group> 
+        <Button variant="outline" color="green"> Aceitar </Button>
+        <Button variant="outline" color="red"> Rejeitar </Button>
+      </Group>
+  } else if (received && commission.accepted && !commission.artwork) {
+    borderColor = "orange";
+    actions =
+      <Dropzone multiple={false} onDrop={(files) => console.log(files)} maxSize={3 * 1024 ** 2} accept={IMAGE_MIME_TYPE} style={{width: "100%"}}>
+        {(status) => (
+          <Group position="center" style={{ pointerEvents: 'none', width: "100%" }}>
+            <FaFileImage />
+            <Text size="sm" inline>
+              Clique para selecionar o arquivo, ou solte-o aqui
+            </Text>
+          </Group>
+        )}
+      </Dropzone>
+  } else if (!received && commission.accepted === false) {
+    borderColor = "red"
+  } else if (!received && commission.accepted) {
+    borderColor = "lime";
+  }
+  else {
+    borderColor = "grey";
+  }
+
   return (
-    <Card shadow='sm' withBorder>
-      <Group style={{ minHeight: 200, minWidth: 300 }} direction="column" position="apart">
-        <Group position="apart">
-          <Text weight={700}>{commission.requester.Name}</Text>
+    <Card shadow='sm' withBorder style={{borderColor: borderColor, height: 300 }}>
+      <Group style={{ height: "100%", width: "100%" }} direction="column" position="apart" noWrap>
+        <Group position="apart" style={{width: "100%"}}>
+          <Text weight={700}>{received ? commission.requester.Name : commission.executor.Name}</Text>
           <DateText datetime={commission.date}/>
         </Group>
-        <Text size="sm" style={{lineHeight: 1.5}}>{commission.description}</Text>
-        <StatusText accepted={commission.accepted} />
+        <Text size="sm" style={{lineHeight: 1.5, marginBottom: "auto"}} lineClamp={4} align="justify" >{commission.description}</Text>
+        <StatusText accepted={commission.accepted} uploaded={!!commission.artwork}/>
+        {actions}
       </Group>
     </Card>
   );
+}
+
+const CommissionSection = ({title, commissions, pageSize, cardProps}) => {
+  const [activePage, setPage] = useState(1);
+  return (<Container fluid>
+    <Title>{title}</Title>
+    <Space h="md"/>
+    <SimpleGrid cols={4} breakpoints={[
+      { maxWidth: 'sm', cols: 1 },
+      { maxWidth: 'md', cols: 2 }
+    ]}>
+      {commissions.slice((activePage-1)*pageSize).map((commission) => 
+        <CommissionCard commission={commission} {...cardProps} key={commission.id}/>
+      )}
+    </SimpleGrid>
+    <Center> <Pagination page={activePage} onChange={setPage} total={Math.ceil(commissions.length/pageSize)} style={{marginTop: "2rem"}}/> </Center>
+  </Container>);
 }
 
 
@@ -86,34 +140,16 @@ export async function getServerSideProps({ params }) {
 }
 
 export default function Commissions({ requested, received }) {
+  
+  const [activePageRequested, setPageRequested] = useState(1);
+  const sectionPageSize = 4;
   return (<>
     <Head><title>Encomendas</title></Head>
     <Container fluid>
-      <Title>Pedidos recebidos</Title>
-      <Space h="md"/>
-      <SimpleGrid breakpoints={[
-        { minWidth: 'xs', cols: 3 },
-        { minWidth: 'md', cols: 4 }
-      ]}>
-        {received.map((commission) => 
-          <div key={commission.id}>
-            <CommissionCard commission={commission} />
-          </div>
-        )}
-      </SimpleGrid>
       <Space h="lg"/>
-      <Title>Pedidos feitos</Title>
-      <Space h="md"/>
-      <SimpleGrid breakpoints={[
-        { minWidth: 'xs', cols: 3 },
-        { minWidth: 'md', cols: 4 }
-      ]}>
-        {requested.map((commission) => 
-          <div key={commission.id}>
-            <CommissionCard commission={commission} />
-          </div>
-        )}
-      </SimpleGrid>
+      <CommissionSection title="Pedidos recebidos" commissions={received} pageSize={sectionPageSize} cardProps={{received: true}}/>
+      <Space h="lg"/>
+      <CommissionSection title="Pedidos feitos" commissions={requested} pageSize={sectionPageSize} />
     </Container>
   </>);
 }
