@@ -41,12 +41,11 @@ export default function AlbumCard({ album }) {
           </Text>
         )}
 
-        <Button component={Link}
-          href={`${username}/album/${album.id}`}
+        <Button
           variant='light'
           color='blue'
           fullWidth style={{ marginTop: 14 }}>
-          Ver mais
+          <Link href={`${username}/album/${album.id}`}>Ver mais</Link>
         </Button>
       </Card>
     </Container>
