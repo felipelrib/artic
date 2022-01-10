@@ -1,9 +1,9 @@
 import { AppShell } from '@mantine/core';
-import { NavigationHeader, Sidebar } from './Navigation';
+import Sidebar from './Navigation';
 
 export default function Layout({ children }) {
 	return (
-		<AppShell fixed /* header={<NavigationHeader />} */ navbar={<Sidebar />}>
+		<AppShell fixed navbar={<Sidebar />}>
 			<main>{children}</main>
 		</AppShell>
 	);
