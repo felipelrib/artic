@@ -7,7 +7,8 @@ import {
   Card,
   Group,
   Avatar,
-  Text
+  Text,
+  Button
 } from '@mantine/core'
 
 
@@ -45,6 +46,7 @@ export default function ArtistInfo({ user }) {
               {user.Bio && <Card.Section>{user.Bio}</Card.Section>}
             </Card.Section>
           )}
+          <Card.Section><Button>Encomendar</Button></Card.Section>
         </Group>
       </Card>
     </Container>
