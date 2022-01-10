@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { getMonthsNames } from '@mantine/dates';
 
 import 'dayjs/locale/pt';
@@ -24,7 +26,9 @@ export default function ArtistInfo({ baseUrl, user }) {
       <Card withBorder>
         <Group>
           <Card.Section>
-            <Avatar src={photo} alt='Foto do usuário' size='200px' />
+            <Link href={`/${user.Username}`}>
+              <Avatar src={photo} alt='Foto do usuário' size='200px' />
+            </Link>
           </Card.Section>
           {(user.Name || user.Username || user.created_at || user.Bio) && (
             <Card.Section>
