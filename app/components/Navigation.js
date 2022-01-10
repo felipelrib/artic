@@ -1,6 +1,6 @@
 import { Avatar, Group, Header, Navbar, Text, UnstyledButton } from '@mantine/core';
 import { createStyles, useMantineTheme } from '@mantine/styles';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
 	user: {
@@ -33,7 +33,7 @@ function HeaderLinkButton({ label, destination }) {
 	const { classes } = useStyles();
 	return (
 		<UnstyledButton className={classes.button}>
-			<Link href={destination}>
+			<Link href={destination} passHref>
 				<Text weight={700} size='lg'>
 					{label}
 				</Text>
