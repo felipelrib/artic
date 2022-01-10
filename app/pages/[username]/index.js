@@ -12,6 +12,8 @@ import ArtistInfo from '../components/ArtistInfo';
 
 import ArtsGrid from '../components/ArtsGrid';
 
+import ArtCard from '../components/ArtCard';
+
 // TODO: Add user data to context
 async function getUserByUsername(username) {
 	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
@@ -47,7 +49,9 @@ export default function Index({ user }) {
 			<Divider size='sm' />
 			<Space h='xl' />
 			<Space h='sm' />
-			<ArtsGrid arts={arts} />
+			<ArtsGrid arts={arts.map((art) => (
+        <ArtCard art={art} />
+      ))} />
 		</>
 	) : (
 		<>
