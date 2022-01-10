@@ -6,7 +6,8 @@ import {
   Space,
   Divider,
   Title,
-  Container
+  Container,
+  Text
 } from '@mantine/core';
 
 import ArtistInfo from '../../components/ArtistInfo';
@@ -62,7 +63,7 @@ export default function Album({ user, album }) {
           {album.name ? (<>Obras em <em>{album.name}</em></>) : (<>Obras do álbum</>)}
         </Title>
         <ArtsGrid arts={album.arts.map((art) => (
-          <ArtCard art={art} />
+          <ArtCard key={art.id} art={art} />
         ))} />
       </Container>
     </>

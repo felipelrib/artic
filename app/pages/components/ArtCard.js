@@ -5,7 +5,8 @@ import {
   Text,
   Group,
   Button,
-  Container
+  Container,
+  Badge
 } from '@mantine/core';
 
 export default function ArtCard({ art }) {

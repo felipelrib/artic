@@ -58,7 +58,7 @@ export default function Index({ user, albums }) {
 			<Space h='xl' />
 			<Space h='sm' />
 			<ArtsGrid arts={albums.map((album) => (
-        <AlbumCard album={album} />
+        <AlbumCard key={album.id} album={album} />
       ))} />
 		</>
 	) : (
