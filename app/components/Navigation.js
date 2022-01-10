@@ -57,7 +57,7 @@ function Sidebar() {
 				<Group spacing='lg'>
 					{/* TODO: Com autenticação, verificar qual o user corrente */}
 					<HeaderLinkButton label='Home' destination='/' />
-					<HeaderLinkButton label='My Profile' destination='/rafaelpardini/portfolio' />
+					<HeaderLinkButton label='My Profile' destination='/rafaelpardini' />
 					<HeaderLinkButton label='Search' destination='/search' />
 					<HeaderLinkButton
 						label='Commissions'
