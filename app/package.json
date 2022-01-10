@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "^3.2.1",
+    "@mantine/core": "^3.1.8",
     "@mantine/dates": "^3.1.8",
     "@mantine/dropzone": "^3.5.4",
     "@mantine/hooks": "^3.2.1",
     "@mantine/next": "^3.1.8",
     "@mantine/rte": "^3.1.8",
+    "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "next": "12.0.1",
     "react": "17.0.2",

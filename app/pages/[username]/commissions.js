@@ -5,6 +5,9 @@ import { Button, Center, Group, Space, Text, Title, Card, Container, SimpleGrid,
 import { FaFileImage } from 'react-icons/fa';
 import { IMAGE_MIME_TYPE, Dropzone } from '@mantine/dropzone';
 
+import * as commissionsService from '../../services/commissions';
+import * as userService from '../../services/user';
+
 const DateText = ({ datetime }) => {
   let date = new Date(datetime);
   let o = new Intl.DateTimeFormat("pt" , {
@@ -128,9 +131,9 @@ async function fetchReceivedCommissions(username) {
 }
 
 export async function getServerSideProps({ params }) {
-  const user = await fetchUser(params.username);
-  const requested = await fetchRequestedCommissions(params.username);
-  const received = await fetchReceivedCommissions(params.username);
+  const user = await userService.getUser(params.username);
+  const requested = await commissionsService.getRequestedCommissions(params.username);
+  const received = await commissionsService.getReceivedCommissions(params.username);
   if (!user) {
     return { notFound: true };
   }
