@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import {
-	Avatar,
 	Badge,
 	Button,
 	Card,
@@ -15,22 +14,13 @@ import {
 	SimpleGrid,
 	Text,
 	useMantineTheme,
-	Paper,
 
 } from '@mantine/core';
 
-import { getMonthsNames } from '@mantine/dates';
-
-import 'dayjs/locale/pt';
-
-
-function convertDateToPT(dateString) {
-  const date = new Date(dateString);
-  return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
-}
+import ArtistInfo from '../components/ArtistInfo';
 
 // TODO: Add user data to context
-async function fetchUser(username) {
+async function getUserByUsername(username) {
 	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
 	if (response.ok) {
 		let users = await response.json();
@@ -42,45 +32,10 @@ async function fetchUser(username) {
 }
 
 export async function getServerSideProps({ params }) {
-	const user = await fetchUser(params.username);
+	const user = await getUserByUsername(params.username);
 	return {
 		props: { user: user },
 	};
-}
-
-function BasicArtistInfo({ user }) {
-	const photo = user.Picture ? `${process.env.STRAPI_API_URL}${user.Picture.url}` : undefined;
-	return (
-		<Container size='md' padding='sm'>
-			<Card withBorder>
-				<Group>
-					<Card.Section>
-						<Avatar src={photo} alt='Foto do usuário' size='200px' />
-					</Card.Section>
-					{(user.Name || user.Username || user.created_at || user.Bio) && (
-						<Card.Section>
-							{user.Name && (
-								<Text weight={700} size='lg' style={{ lineHeight: 1.5 }}>
-									{user.Name}
-								</Text>
-							)}
-							{user.Username && (
-								<Text style={{ lineHeight: 1.5 }}>
-									@{user.Username}
-								</Text>
-							)}
-							{user.created_at && (
-								<Text color='dimmed' style={{ lineHeight: 1.5 }}>
-									Entrou em {convertDateToPT(user.created_at)}
-								</Text>
-							)}
-							{user.Bio && <Card.Section>{user.Bio}</Card.Section>}
-						</Card.Section>
-					)}
-				</Group>
-			</Card>
-		</Container>
-	);
 }
 
 function ArtCard({ art }) {
@@ -132,7 +87,7 @@ export default function WorksOfUser({ user }) {
 			<Head>
 				<title>{username} | Obras</title>
 			</Head>
-			<BasicArtistInfo user={user} />
+			<ArtistInfo user={user} />
 			{arts && arts.length > 0 && (
 				<>
 					<Space h='xl' />
