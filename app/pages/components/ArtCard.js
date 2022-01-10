@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import {
   useMantineTheme,
   Card,
@@ -42,7 +44,7 @@ export default function ArtCard({ baseUrl, art }) {
         )}
 
         <Button variant='light' color='blue' fullWidth style={{ marginTop: 14 }}>
-          Ver mais
+          <Link href={`/artwork/${art.id}`}>Ver mais</Link>
         </Button>
       </Card>
       </Container>
