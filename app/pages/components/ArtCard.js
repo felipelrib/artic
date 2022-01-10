@@ -36,7 +36,7 @@ export default function ArtCard({ art }) {
 
         {art.description && (
           <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
-            {art.description}
+            {art.description.length > 150 ? art.description.slice(0, 150) + ' (...)' : art.description}
           </Text>
         )}
 
