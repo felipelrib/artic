@@ -16,7 +16,7 @@ async function fetchArtwork(id) {
     if (response.ok) {
         let artwork = await response.json();
         if (artwork) {
-            artwork.media.url = `${process.env.STRAPI_URL}${artwork.media.url}`;
+            artwork.media.url = `${process.env.STRAPI_API_URL}${artwork.media.url}`;
             return artwork;
         }
     }
