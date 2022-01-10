@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { Group, Image, Text, Center, Title, Container, Grid, List } from '@mantine/core';
+import axios from "axios";
 
 const DateText = ({ datetime }) => {
     let date = new Date(datetime);
@@ -24,6 +25,12 @@ async function fetchArtwork(id) {
 export async function getServerSideProps({ params }) {
     const artwork = await fetchArtwork(params.id);
     if (artwork) {
+        const api = axios.create({
+            baseURL: process.env.STRAPI_API_URL
+        });
+        api.put(`/arts/${artwork.id}`, {
+            views: artwork.views ? parseInt(artwork.views) + 1 : 1
+        });
         return {
             props: {
                 mediaBaseURL: process.env.STRAPI_API_URL,
