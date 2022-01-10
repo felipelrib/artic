@@ -17,8 +17,8 @@ function convertDateToPT(dateString) {
   return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
 }
 
-export default function ArtistInfo({ user }) {
-  const photo = user.Picture ? `${process.env.STRAPI_API_URL}${user.Picture.url}` : undefined;
+export default function ArtistInfo({ baseUrl, user }) {
+  const photo = user.Picture ? `${baseUrl}${user.Picture.url}` : undefined;
   return (
     <Container size='md' padding='sm'>
       <Card withBorder>

@@ -39,11 +39,11 @@ export async function getServerSideProps({ params }) {
 	const user = await getUserByUsername(params.username);
 	const albums = await getAlbumsByUserId(user.id);
 	return {
-		props: { user: user, albums: albums },
+		props: { baseUrl: process.env.STRAPI_API_URL, user: user, albums: albums },
 	};
 }
 
-export default function Index({ user, albums }) {
+export default function Index({ baseUrl, user, albums }) {
 	const router = useRouter();
 	const { username } = router.query;
 
@@ -52,13 +52,13 @@ export default function Index({ user, albums }) {
 			<Head>
 				<title>{username} | Álbuns</title>
 			</Head>
-			<ArtistInfo user={user} />
+			<ArtistInfo user={user} baseUrl={baseUrl} />
 			<Space h='xl' />
 			<Divider size='sm' />
 			<Space h='xl' />
 			<Space h='sm' />
 			<ArtsGrid arts={albums.map((album) => (
-        <AlbumCard key={album.id} album={album} />
+        <AlbumCard key={album.id} album={album} baseUrl={baseUrl} />
       ))} />
 		</>
 	) : (

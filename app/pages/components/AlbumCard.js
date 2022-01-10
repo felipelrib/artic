@@ -12,7 +12,7 @@ import {
 
 import Link from 'next/link';
 
-export default function AlbumCard({ album }) {
+export default function AlbumCard({ baseUrl, album }) {
   const router = useRouter();
 
   const { username } = router.query;
@@ -22,7 +22,7 @@ export default function AlbumCard({ album }) {
   const secondaryColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
-  const photo = album.arts[0].media ? `${process.env.STRAPI_API_URL}${album.arts[0].media.url}` : undefined;
+  const photo = album.arts[0].media ? `${baseUrl}${album.arts[0].media.url}` : undefined;
 
   return (
     <Container key={album.id} m='sm' size='xs'>

@@ -9,13 +9,13 @@ import {
   Badge
 } from '@mantine/core';
 
-export default function ArtCard({ art }) {
+export default function ArtCard({ baseUrl, art }) {
   const theme = useMantineTheme();
 
   const secondaryColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
-  const photo = art.media ? `${process.env.STRAPI_API_URL}${art.media.url}` : undefined;
+  const photo = art.media ? `${baseUrl}${art.media.url}` : undefined;
 
   return (
     <Container key={art.id} m='sm' size='xs'>
