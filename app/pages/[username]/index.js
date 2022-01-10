@@ -8,11 +8,11 @@ import {
 	Text
 } from '@mantine/core';
 
-import ArtistInfo from '../components/ArtistInfo';
+import ArtistInfo from '../../components/ArtistInfo';
 
-import ArtsGrid from '../components/ArtsGrid';
+import ArtsGrid from '../../components/ArtsGrid';
 
-import AlbumCard from '../components/AlbumCard';
+import AlbumCard from '../../components/AlbumCard';
 
 // TODO: Add user data to context
 async function getUserByUsername(username) {

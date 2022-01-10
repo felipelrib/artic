@@ -10,11 +10,11 @@ import {
   Text
 } from '@mantine/core';
 
-import ArtistInfo from '../../components/ArtistInfo';
+import ArtistInfo from '../../../components/ArtistInfo';
 
-import ArtsGrid from '../../components/ArtsGrid';
+import ArtsGrid from '../../../components/ArtsGrid';
 
-import ArtCard from '../../components/ArtCard';
+import ArtCard from '../../../components/ArtCard';
 
 async function getAlbumById(albumId) {
   const response = await fetch(process.env.STRAPI_API_URL + `/albums/${albumId}`);
