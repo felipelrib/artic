@@ -62,7 +62,10 @@ function CommissionCard({commission, received}) {
   } else if (!received && commission.accepted === false) {
     borderColor = "red"
   } else if (!received && commission.accepted) {
-    borderColor = "lime";
+    borderColor = "lightblue";
+    if (commission.artwork) {
+      actions = <Button variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }} style={{width: "100%"}}>Download</Button>
+    }
   }
   else {
     borderColor = "grey";
@@ -143,8 +146,6 @@ export async function getServerSideProps({ params }) {
 }
 
 export default function Commissions({ requested, received }) {
-  
-  const [activePageRequested, setPageRequested] = useState(1);
   const sectionPageSize = 4;
   return (<>
     <Head><title>Encomendas</title></Head>
