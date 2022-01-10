@@ -54,7 +54,7 @@ export default function Artwork({ artwork }) {
                 <Grid>
                     <Grid.Col span={12}>
                         <Container size="sm">
-                            <Image src={artwork.media.url} />
+                            <Image src={artwork.media.url} alt={artwork.name}/>
                         </Container>
                     </Grid.Col>
                     <Grid.Col span={12}>
