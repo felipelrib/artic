@@ -12,7 +12,7 @@ import ArtistInfo from '../components/ArtistInfo';
 
 import ArtsGrid from '../components/ArtsGrid';
 
-import ArtCard from '../components/ArtCard';
+import AlbumCard from '../components/AlbumCard';
 
 // TODO: Add user data to context
 async function getUserByUsername(username) {
@@ -26,18 +26,26 @@ async function getUserByUsername(username) {
 	return null;
 }
 
+async function getAlbumsByUserId(userId) {
+	const response = await fetch(process.env.STRAPI_API_URL + `/albums?artic_user.id=${userId}`);
+	if (response.ok) {
+		let albums = await response.json();
+		return albums;
+	}
+	return null;
+}
+
 export async function getServerSideProps({ params }) {
 	const user = await getUserByUsername(params.username);
+	const albums = await getAlbumsByUserId(user.id);
 	return {
-		props: { user: user },
+		props: { user: user, albums: albums },
 	};
 }
 
-export default function Index({ user }) {
+export default function Index({ user, albums }) {
 	const router = useRouter();
 	const { username } = router.query;
-
-	const { arts } = user;
 
 	return user ? (
 		<>
@@ -49,8 +57,8 @@ export default function Index({ user }) {
 			<Divider size='sm' />
 			<Space h='xl' />
 			<Space h='sm' />
-			<ArtsGrid arts={arts.map((art) => (
-        <ArtCard art={art} />
+			<ArtsGrid arts={albums.map((album) => (
+        <AlbumCard album={album} />
       ))} />
 		</>
 	) : (
