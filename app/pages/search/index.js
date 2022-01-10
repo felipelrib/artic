@@ -36,7 +36,6 @@ export default function Search({ apiBaseURL }) {
   const [activePage, setPage] = useState(1);
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  
   const pageSize = 4;
   const form = useForm({
     initialValues: {
