@@ -3,6 +3,9 @@ import 'dayjs/locale/pt';
 import { getMonthsNames } from '@mantine/dates';
 import { Group, Space, Text, Title, Card, Container, SimpleGrid } from '@mantine/core';
 
+import * as commissionsService from '../../services/commissions';
+import * as userService from '../../services/user';
+
 const DateText = ({ datetime }) => {
   let date = new Date(datetime);
   let o = new Intl.DateTimeFormat("pt" , {
@@ -43,40 +46,10 @@ const CommissionCard = ({commission}) => {
   );
 }
 
-
-async function fetchUser(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users?Username=${username}`);
-  if (response.ok) {
-    let users = await response.json();
-    if (users.length !== 0) {
-      return users[0];
-    }
-  }
-  return null;
-}
-
-async function fetchRequestedCommissions(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/commissions?requester.Username=${username}`);
-  if (response.ok) {
-    let commissions = await response.json();
-    return commissions;
-  }
-  return null;
-}
-
-async function fetchReceivedCommissions(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/commissions?executor.Username=${username}`);
-  if (response.ok) {
-    let commissions = await response.json();
-    return commissions;
-  }
-  return null;
-}
-
 export async function getServerSideProps({ params }) {
-  const user = await fetchUser(params.username);
-  const requested = await fetchRequestedCommissions(params.username);
-  const received = await fetchReceivedCommissions(params.username);
+  const user = await userService.getUser(params.username);
+  const requested = await commissionsService.getRequestedCommissions(params.username);
+  const received = await commissionsService.getReceivedCommissions(params.username);
   if (!user) {
     return { notFound: true };
   }
@@ -95,7 +68,7 @@ export default function Commissions({ requested, received }) {
         { minWidth: 'xs', cols: 3 },
         { minWidth: 'md', cols: 4 }
       ]}>
-        {received.map((commission) => 
+        {received.map((commission) =>
           <div key={commission.id}>
             <CommissionCard commission={commission} />
           </div>
@@ -108,7 +81,7 @@ export default function Commissions({ requested, received }) {
         { minWidth: 'xs', cols: 3 },
         { minWidth: 'md', cols: 4 }
       ]}>
-        {requested.map((commission) => 
+        {requested.map((commission) =>
           <div key={commission.id}>
             <CommissionCard commission={commission} />
           </div>
