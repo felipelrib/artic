@@ -88,9 +88,10 @@ export default function Search({ apiBaseURL }) {
       <Center>
         <Title>Resultados</Title>
       </Center>
+      <Space h="md"/>
       <Container fluid>
         <Center>
-          <SimpleGrid cols={3} breakpoints={[
+          <SimpleGrid cols={searchResults.length > 3 ? 3 : searchResults.length || 1} breakpoints={[
             { maxWidth: 'sm', cols: 1 },
             { maxWidth: 'md', cols: 2 }
           ]}>
