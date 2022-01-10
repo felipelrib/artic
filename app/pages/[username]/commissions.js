@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import 'dayjs/locale/pt';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Button, Center, Group, Space, Text, Title, Card, Container, SimpleGrid, Pagination } from '@mantine/core';
 import { FaFileImage } from 'react-icons/fa';
@@ -37,10 +38,27 @@ const StatusText = ({accepted, uploaded, className}) => {
 }
 
 function CommissionCard({commission, received}) {
+  const router = useRouter();
   let actions;
   let borderColor;
 
-  function commisionOnDrop(files) {
+  function commissionOnAccept() {
+    fetch(`/api/commissions/accept/${commission.id}`, {
+      method: 'POST'
+    }).then(()=> {
+      router.replace(router.asPath);
+    });
+  }
+
+  function commissionOnReject() {
+    fetch(`/api/commissions/reject/${commission.id}`, {
+      method: 'POST'
+    }).then(()=> {
+      router.replace(router.asPath);
+    });
+  }
+
+  function commissionOnDrop(files) {
     const data = new FormData();
     data.append('image', files[0]);
     data.append('commission', JSON.stringify(commission));
@@ -48,6 +66,8 @@ function CommissionCard({commission, received}) {
     fetch('/api/commissions/uploadCommissionFile', {
       method: 'POST',
       body: data
+    }).then(()=> {
+      router.replace(router.asPath);
     });
   }
 
@@ -55,13 +75,13 @@ function CommissionCard({commission, received}) {
     borderColor = "orange";
     actions =
       <Group>
-        <Button variant="outline" color="green"> Aceitar </Button>
-        <Button variant="outline" color="red"> Rejeitar </Button>
+        <Button variant="outline" color="green" onClick={commissionOnAccept}> Aceitar </Button>
+        <Button variant="outline" color="red" onClick={commissionOnReject}> Rejeitar </Button>
       </Group>
   } else if (received && commission.accepted && !commission.artwork) {
     borderColor = "orange";
     actions =
-      <Dropzone multiple={false} onDrop={commisionOnDrop} maxSize={3 * 1024 ** 2} accept={IMAGE_MIME_TYPE} style={{width: "100%"}}>
+      <Dropzone multiple={false} onDrop={commissionOnDrop} maxSize={3 * 1024 ** 2} accept={IMAGE_MIME_TYPE} style={{width: "100%"}}>
         {(status) => (
           <Group position="center" style={{ pointerEvents: 'none', width: "100%" }}>
             <FaFileImage />
