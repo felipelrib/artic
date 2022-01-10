@@ -50,7 +50,7 @@ export default function Index({ user, albums }) {
 	return user ? (
 		<>
 			<Head>
-				<title>{username} | Obras</title>
+				<title>{username} | Álbuns</title>
 			</Head>
 			<ArtistInfo user={user} />
 			<Space h='xl' />
