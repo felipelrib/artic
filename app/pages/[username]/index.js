@@ -37,7 +37,13 @@ async function getAlbumsByUserId(userId) {
 
 export async function getServerSideProps({ params }) {
 	const user = await getUserByUsername(params.username);
+	if (user == null) {
+		return { notFound: true };
+	}
 	const albums = await getAlbumsByUserId(user.id);
+	if (albums == null) {
+		return { notFound: true };
+	}
 	return {
 		props: { baseUrl: process.env.STRAPI_API_URL, user: user, albums: albums },
 	};
@@ -47,26 +53,18 @@ export default function Index({ baseUrl, user, albums }) {
 	const router = useRouter();
 	const { username } = router.query;
 
-	return user ? (
-		<>
-			<Head>
-				<title>{username} | Álbuns</title>
-			</Head>
-			<ArtistInfo user={user} baseUrl={baseUrl} />
-			<Space h='xl' />
-			<Divider size='sm' />
-			<Space h='xl' />
-			<Space h='sm' />
-			<ArtsGrid arts={albums.map((album) => (
-        <AlbumCard key={album.id} album={album} baseUrl={baseUrl} />
-      ))} />
-		</>
-	) : (
-		<>
-			<Head>
-				<title>Not Found</title>
-			</Head>
-			<Text>Usuário {username} não encontrado</Text>
-		</>
+	return (<>
+		<Head>
+			<title>{username} | Álbuns</title>
+		</Head>
+		<ArtistInfo user={user} baseUrl={baseUrl} />
+		<Space h='xl' />
+		<Divider size='sm' />
+		<Space h='xl' />
+		<Space h='sm' />
+		<ArtsGrid arts={albums.map((album) => (
+			<AlbumCard key={album.id} album={album} baseUrl={baseUrl} />
+		))} />
+	</>
 	);
 }

@@ -39,6 +39,9 @@ async function getUserByUsername(username) {
 export async function getServerSideProps({ params }) {
   const user = await getUserByUsername(params.username);
   const album = await getAlbumById(params.id);
+  if(user == null || album == null) {
+    return { notFound: true };
+  }
   return {
     props: { baseUrl: process.env.STRAPI_API_URL, user: user, album: album },
   };
