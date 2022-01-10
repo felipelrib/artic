@@ -36,9 +36,7 @@ export default function Search({ apiBaseURL }) {
   const [activePage, setPage] = useState(1);
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const api = axios.create({
-    baseURL: apiBaseURL
-  });
+  
   const pageSize = 4;
   const form = useForm({
     initialValues: {
@@ -47,6 +45,9 @@ export default function Search({ apiBaseURL }) {
   });
 
   useEffect(() => {
+    const api = axios.create({
+      baseURL: apiBaseURL
+    });
     if (activePage > 1) {
       setActivePage(1);
       return;
@@ -69,7 +70,7 @@ export default function Search({ apiBaseURL }) {
       .catch((error) => {
         console.log(error);
       });
-  }, [searchText, activePage]);
+  }, [searchText, activePage, apiBaseURL]);
 
   return (<>
     <Head><title>Pesquisa por obras</title></Head>
