@@ -26,7 +26,7 @@ export default function ArtistInfo({ baseUrl, user }) {
       <Card withBorder>
         <Group>
           <Card.Section>
-            <Link href={`/${user.Username}`}>
+            <Link href={`/${user.Username}`} passHref>
               <Avatar src={photo} alt='Foto do usuário' size='200px' />
             </Link>
           </Card.Section>
