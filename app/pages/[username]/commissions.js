@@ -39,17 +39,29 @@ const StatusText = ({accepted, uploaded, className}) => {
 function CommissionCard({commission, received}) {
   let actions;
   let borderColor;
+
+  function commisionOnDrop(files) {
+    const data = new FormData();
+    data.append('image', files[0]);
+    data.append('commission', JSON.stringify(commission));
+
+    fetch('/api/commissions/uploadCommissionFile', {
+      method: 'POST',
+      body: data
+    });
+  }
+
   if (received && commission.accepted === null) {
     borderColor = "orange";
-    actions = 
-      <Group> 
+    actions =
+      <Group>
         <Button variant="outline" color="green"> Aceitar </Button>
         <Button variant="outline" color="red"> Rejeitar </Button>
       </Group>
   } else if (received && commission.accepted && !commission.artwork) {
     borderColor = "orange";
     actions =
-      <Dropzone multiple={false} onDrop={(files) => console.log(files)} maxSize={3 * 1024 ** 2} accept={IMAGE_MIME_TYPE} style={{width: "100%"}}>
+      <Dropzone multiple={false} onDrop={commisionOnDrop} maxSize={3 * 1024 ** 2} accept={IMAGE_MIME_TYPE} style={{width: "100%"}}>
         {(status) => (
           <Group position="center" style={{ pointerEvents: 'none', width: "100%" }}>
             <FaFileImage />
@@ -95,42 +107,12 @@ const CommissionSection = ({title, commissions, pageSize, cardProps}) => {
       { maxWidth: 'sm', cols: 1 },
       { maxWidth: 'md', cols: 2 }
     ]}>
-      {commissions.slice((activePage-1)*pageSize).map((commission) => 
+      {commissions.slice((activePage-1)*pageSize).map((commission) =>
         <CommissionCard commission={commission} {...cardProps} key={commission.id}/>
       )}
     </SimpleGrid>
     <Center> <Pagination page={activePage} onChange={setPage} total={Math.ceil(commissions.length/pageSize)} style={{marginTop: "2rem"}}/> </Center>
   </Container>);
-}
-
-
-async function fetchUser(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/artic-users?Username=${username}`);
-  if (response.ok) {
-    let users = await response.json();
-    if (users.length !== 0) {
-      return users[0];
-    }
-  }
-  return null;
-}
-
-async function fetchRequestedCommissions(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/commissions?requester.Username=${username}`);
-  if (response.ok) {
-    let commissions = await response.json();
-    return commissions;
-  }
-  return null;
-}
-
-async function fetchReceivedCommissions(username) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/commissions?executor.Username=${username}`);
-  if (response.ok) {
-    let commissions = await response.json();
-    return commissions;
-  }
-  return null;
 }
 
 export async function getServerSideProps({ params }) {

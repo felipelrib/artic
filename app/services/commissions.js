@@ -18,4 +18,8 @@ const getReceivedCommissions = async (username) => {
     return commissions;
 }
 
-export { getRequestedCommissions, getReceivedCommissions };
+const updateCommissionImage = async (image, commission) => {
+    return await api.put(`/commissions/${commission.id}`, {artwork: image.id});
+}
+
+export { getRequestedCommissions, getReceivedCommissions, updateCommissionImage };
