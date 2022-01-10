@@ -2,11 +2,24 @@ import api from './api.js';
 
 const createCommission = async (params) => {
     let commission = null;
+    if (params.executor.id === params.requester.id) {
+        return null;
+    }
     const response = await api.post(`/commissions`, params);
     if (response.data) {
         commission = response.data;
     }
     return commission;
+}
+
+const getCommission = async (id) => {
+    let response = null;
+    try {
+        response = await api.get(`/commissions/${id}`);
+        return response.data;
+    } catch (err) {
+        return null;
+    }
 }
 
 const getRequestedCommissions = async (username) => {
@@ -39,4 +52,9 @@ const rejectCommission = async (id) => {
     return await api.put(`/commissions/${id}`, {accepted: false});
 }
 
-export { createCommission, getRequestedCommissions, getReceivedCommissions, updateCommissionImage, acceptCommission, rejectCommission };
+const deleteCommission = async (id) => {
+    const response = await api.delete(`/commissions/${id}`);
+    return true;
+}
+
+export { createCommission, getCommission, getRequestedCommissions, getReceivedCommissions, updateCommissionImage, acceptCommission, rejectCommission, deleteCommission };
