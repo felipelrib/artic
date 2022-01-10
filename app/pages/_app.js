@@ -6,6 +6,11 @@ import Layout from '../components/Layout';
 export default function App(props) {
 	const { Component, pageProps } = props;
 
+	// TODO: Com autenticação, salvar no session storage o usuário corrente
+
+	// sessionStorage.setItem('currentLogin', 'rafaelpardini');
+	// sessionStorage.setItem('currentUserName', 'Rafael Pardini');
+
 	return (
 		<>
 			<Head>

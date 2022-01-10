@@ -3,7 +3,7 @@ import { NavigationHeader, Sidebar } from './Navigation';
 
 export default function Layout({ children }) {
 	return (
-		<AppShell header={<NavigationHeader />} navbar={<Sidebar />}>
+		<AppShell fixed /* header={<NavigationHeader />} */ navbar={<Sidebar />}>
 			<main>{children}</main>
 		</AppShell>
 	);
