@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import {
   useMantineTheme,
   Card,
@@ -8,7 +10,13 @@ import {
   Container
 } from '@mantine/core';
 
-export default function ArtCard({ album }) {
+import Link from 'next/link';
+
+export default function AlbumCard({ album }) {
+  const router = useRouter();
+
+  const { username } = router.query;
+
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -33,10 +41,14 @@ export default function ArtCard({ album }) {
           </Text>
         )}
 
-        <Button variant='light' color='blue' fullWidth style={{ marginTop: 14 }}>
+        <Button component={Link}
+          href={`${username}/album/${album.id}`}
+          variant='light'
+          color='blue'
+          fullWidth style={{ marginTop: 14 }}>
           Ver mais
         </Button>
       </Card>
-      </Container>
+    </Container>
   );
 }
