@@ -11,7 +11,7 @@ import {
   Badge
 } from '@mantine/core';
 
-export default function ArtCard({ baseUrl, art }) {
+function ArtCard({ baseUrl, art, description, tags, artistName }) {
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -29,13 +29,15 @@ export default function ArtCard({ baseUrl, art }) {
 
           <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
             <Text weight={500}>{art.name}</Text>
-            <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+            {tags && (
+              <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
               {art.tags?.map((tag) => (
                 <Badge key={tag.id} color='pink' variant='light'>
                   {tag.name}
                 </Badge>
               ))}
-            </Group>
+              </Group>
+            )}
           </Group>
 
           {art.description && (
@@ -49,3 +51,7 @@ export default function ArtCard({ baseUrl, art }) {
     </Container>
   );
 }
+
+ArtCard.defaultProps = { description: true, tags: true, artistName: false }
+
+export default ArtCard;
