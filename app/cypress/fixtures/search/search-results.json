@@ -1,0 +1,299 @@
+[
+	{
+		"id": 1,
+		"artic_user": {
+		"id": 4,
+		"Username": "rafaelpardini",
+		"Name": "Rafael",
+		"Bio": "Estudante de ciência da computação, fotógrafo e pintor.",
+		"created_at": "2021-11-21T23:30:25.384Z",
+		"updated_at": "2022-01-10T16:46:09.963Z",
+		"Picture": {
+			"id": 2,
+			"name": "PracaEstacaoMonumentoBH_(cropped).jpg",
+			"alternativeText": "",
+			"caption": "",
+			"width": 774,
+			"height": 513,
+			"formats": {
+			"thumbnail": {
+				"name": "thumbnail_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 235,
+				"height": 156,
+				"size": 9.6,
+				"path": null,
+				"url": "/uploads/thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			},
+			"medium": {
+				"name": "medium_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 750,
+				"height": 497,
+				"size": 76.11,
+				"path": null,
+				"url": "/uploads/medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			},
+			"small": {
+				"name": "small_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "small_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 500,
+				"height": 331,
+				"size": 35.5,
+				"path": null,
+				"url": "/uploads/small_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			}
+			},
+			"hash": "Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"size": 84.16,
+			"url": "/uploads/Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg",
+			"previewUrl": null,
+			"provider": "local",
+			"provider_metadata": null,
+			"created_at": "2021-11-21T23:30:13.155Z",
+			"updated_at": "2021-11-21T23:30:13.192Z"
+		}
+		},
+		"name": "Noite Estrelada",
+		"description": "Pintura de Van Gogh. Retrata a vista da janela de um quarto do hospício de Saint-Rémy-de-Provence, pouco antes do nascer do sol, com a adição de um vilarejo idealizado pelo artista",
+		"art_type": null,
+		"views": "3",
+		"published_at": "2021-11-22T18:27:16.083Z",
+		"created_at": "2021-11-22T18:24:07.674Z",
+		"updated_at": "2022-02-13T22:34:00.775Z",
+		"media": {
+		"id": 10,
+		"name": "starry-night.jpg",
+		"alternativeText": "",
+		"caption": "",
+		"width": 2400,
+		"height": 1874,
+		"formats": {
+			"thumbnail": {
+			"name": "thumbnail_starry-night.jpg",
+			"hash": "thumbnail_starry_night_45ff5a5697",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 200,
+			"height": 156,
+			"size": 13.56,
+			"path": null,
+			"url": "/uploads/thumbnail_starry_night_45ff5a5697.jpg"
+			},
+			"large": {
+			"name": "large_starry-night.jpg",
+			"hash": "large_starry_night_45ff5a5697",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 1000,
+			"height": 781,
+			"size": 298.9,
+			"path": null,
+			"url": "/uploads/large_starry_night_45ff5a5697.jpg"
+			},
+			"medium": {
+			"name": "medium_starry-night.jpg",
+			"hash": "medium_starry_night_45ff5a5697",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 750,
+			"height": 586,
+			"size": 173.57,
+			"path": null,
+			"url": "/uploads/medium_starry_night_45ff5a5697.jpg"
+			},
+			"small": {
+			"name": "small_starry-night.jpg",
+			"hash": "small_starry_night_45ff5a5697",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 500,
+			"height": 390,
+			"size": 77.74,
+			"path": null,
+			"url": "/uploads/small_starry_night_45ff5a5697.jpg"
+			}
+		},
+		"hash": "starry_night_45ff5a5697",
+		"ext": ".jpg",
+		"mime": "image/jpeg",
+		"size": 1590.38,
+		"url": "/uploads/starry_night_45ff5a5697.jpg",
+		"previewUrl": null,
+		"provider": "local",
+		"provider_metadata": null,
+		"created_at": "2021-11-22T19:41:32.501Z",
+		"updated_at": "2021-11-22T19:41:32.509Z"
+		},
+		"albums": [
+		{
+			"id": 1,
+			"artic_user": 4,
+			"name": "Artes Favoritas",
+			"published_at": "2022-01-09T15:16:32.407Z",
+			"created_at": "2022-01-09T15:01:59.512Z",
+			"updated_at": "2022-01-10T21:53:36.992Z"
+		}
+		],
+		"tags": [
+		{
+			"id": 1,
+			"name": "Modernismo",
+			"published_at": "2021-11-22T19:54:08.935Z",
+			"created_at": "2021-11-22T18:25:17.890Z",
+			"updated_at": "2021-11-22T19:54:08.956Z"
+		}
+		]
+	},
+	{
+		"id": 2,
+		"artic_user": {
+		"id": 4,
+		"Username": "rafaelpardini",
+		"Name": "Rafael",
+		"Bio": "Estudante de ciência da computação, fotógrafo e pintor.",
+		"created_at": "2021-11-21T23:30:25.384Z",
+		"updated_at": "2022-01-10T16:46:09.963Z",
+		"Picture": {
+			"id": 2,
+			"name": "PracaEstacaoMonumentoBH_(cropped).jpg",
+			"alternativeText": "",
+			"caption": "",
+			"width": 774,
+			"height": 513,
+			"formats": {
+			"thumbnail": {
+				"name": "thumbnail_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 235,
+				"height": 156,
+				"size": 9.6,
+				"path": null,
+				"url": "/uploads/thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			},
+			"medium": {
+				"name": "medium_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 750,
+				"height": 497,
+				"size": 76.11,
+				"path": null,
+				"url": "/uploads/medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			},
+			"small": {
+				"name": "small_PracaEstacaoMonumentoBH_(cropped).jpg",
+				"hash": "small_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+				"ext": ".jpg",
+				"mime": "image/jpeg",
+				"width": 500,
+				"height": 331,
+				"size": 35.5,
+				"path": null,
+				"url": "/uploads/small_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+			}
+			},
+			"hash": "Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"size": 84.16,
+			"url": "/uploads/Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg",
+			"previewUrl": null,
+			"provider": "local",
+			"provider_metadata": null,
+			"created_at": "2021-11-21T23:30:13.155Z",
+			"updated_at": "2021-11-21T23:30:13.192Z"
+		}
+		},
+		"name": "Mona Lisa",
+		"description": "Sua pintura foi iniciada em 1503 (terminando-a três ou quatro anos mais tarde) e é nesta obra que o artista melhor concebeu a técnica do sfumato. O quadro representa uma mulher com uma expressão introspectiva e um pouco tímida.",
+		"art_type": null,
+		"views": "2",
+		"published_at": "2021-11-22T19:00:23.053Z",
+		"created_at": "2021-11-22T19:00:15.741Z",
+		"updated_at": "2022-01-11T01:25:48.312Z",
+		"media": {
+		"id": 9,
+		"name": "mona-lisa.jpg",
+		"alternativeText": "",
+		"caption": "",
+		"width": 770,
+		"height": 876,
+		"formats": {
+			"thumbnail": {
+			"name": "thumbnail_mona-lisa.jpg",
+			"hash": "thumbnail_mona_lisa_d6e61f5b1f",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 137,
+			"height": 156,
+			"size": 5.08,
+			"path": null,
+			"url": "/uploads/thumbnail_mona_lisa_d6e61f5b1f.jpg"
+			},
+			"medium": {
+			"name": "medium_mona-lisa.jpg",
+			"hash": "medium_mona_lisa_d6e61f5b1f",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 659,
+			"height": 750,
+			"size": 107.85,
+			"path": null,
+			"url": "/uploads/medium_mona_lisa_d6e61f5b1f.jpg"
+			},
+			"small": {
+			"name": "small_mona-lisa.jpg",
+			"hash": "small_mona_lisa_d6e61f5b1f",
+			"ext": ".jpg",
+			"mime": "image/jpeg",
+			"width": 439,
+			"height": 500,
+			"size": 44.07,
+			"path": null,
+			"url": "/uploads/small_mona_lisa_d6e61f5b1f.jpg"
+			}
+		},
+		"hash": "mona_lisa_d6e61f5b1f",
+		"ext": ".jpg",
+		"mime": "image/jpeg",
+		"size": 151.9,
+		"url": "/uploads/mona_lisa_d6e61f5b1f.jpg",
+		"previewUrl": null,
+		"provider": "local",
+		"provider_metadata": null,
+		"created_at": "2021-11-22T19:41:32.091Z",
+		"updated_at": "2021-11-22T19:41:32.109Z"
+		},
+		"albums": [
+		{
+			"id": 1,
+			"artic_user": 4,
+			"name": "Artes Favoritas",
+			"published_at": "2022-01-09T15:16:32.407Z",
+			"created_at": "2022-01-09T15:01:59.512Z",
+			"updated_at": "2022-01-10T21:53:36.992Z"
+		}
+		],
+		"tags": [
+		{
+			"id": 2,
+			"name": "Renascença",
+			"published_at": "2021-11-22T18:58:58.652Z",
+			"created_at": "2021-11-22T18:58:18.288Z",
+			"updated_at": "2021-11-22T18:58:58.689Z"
+		}
+		]
+	}
+]
