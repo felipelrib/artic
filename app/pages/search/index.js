@@ -17,31 +17,7 @@ import { useForm } from '@mantine/hooks';
 import { FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 import qs from 'qs';
-
-function ResultCard({ mediaBaseURL, art }) {
-	return (
-		<Card
-			style={{ height: 300, width: 250 }}
-			shadow='sm'
-			withBorder
-			component='a'
-			href={`/artwork/${art.id}`}
-		>
-			<Card.Section>
-				<Image
-					src={`${mediaBaseURL + art.media.url}`}
-					height={160}
-					alt={art.name}
-					fit='contain'
-				/>
-			</Card.Section>
-			<Title>{art.name}</Title>
-			<Text size='sm' style={{ lineHeight: 1.5 }}>
-				por {art.artic_user.Name}
-			</Text>
-		</Card>
-	);
-}
+import ArtCard from '../../components/ArtCard';
 
 export async function getServerSideProps() {
 	return {
@@ -100,7 +76,6 @@ export default function Search({ apiBaseURL }) {
 				<Center>
 					<form onSubmit={form.onSubmit((values) => setSearchText(values.search))}>
 						<TextInput
-							id='search-bar'
 							icon={<FaSearch />}
 							placeholder='Pesquise por um termo ou username'
 							style={{ width: '50vw' }}
@@ -110,11 +85,11 @@ export default function Search({ apiBaseURL }) {
 				</Center>
 				<Space h='lg' />
 				<Center>
-					<Title id='search-page-content-title'>Resultados</Title>
+					<Title>Resultados</Title>
 				</Center>
 				<Space h='md' />
 				<Container fluid>
-					<Center id='search-results'>
+					<Center>
 						<SimpleGrid
 							cols={searchResults.length > 3 ? 3 : searchResults.length || 1}
 							breakpoints={[
@@ -126,10 +101,13 @@ export default function Search({ apiBaseURL }) {
 								? searchResults
 										.slice((activePage - 1) * pageSize)
 										.map((art) => (
-											<ResultCard
-												mediaBaseURL={apiBaseURL}
+											<ArtCard
+												baseUrl={apiBaseURL}
 												art={art}
 												key={art.id}
+												description={false}
+												tags={false}
+												artistName={true}
 											/>
 										))
 								: 'Não há resultados para o termo pesquisado.'}

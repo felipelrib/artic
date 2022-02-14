@@ -16,29 +16,13 @@ import ArtsGrid from '../../../components/ArtsGrid';
 
 import ArtCard from '../../../components/ArtCard';
 
-async function getAlbumById(albumId) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/albums/${albumId}`);
-  if (response.ok) {
-    let album = await response.json();
-    return album;
-  }
-  return null;
-}
+const { getUser } = require('../../../services/user.js');
 
-async function getUserByUsername(username) {
-	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
-	if (response.ok) {
-		let users = await response.json();
-		if (users.length !== 0) {
-			return users[0];
-		}
-	}
-	return null;
-}
+const { getAlbum } = require('../../../services/album.js');
 
 export async function getServerSideProps({ params }) {
-  const user = await getUserByUsername(params.username);
-  const album = await getAlbumById(params.id);
+  const user = await getUser(params.username);
+  const album = await getAlbum(params.id);
   if(user == null || album == null) {
     return { notFound: true };
   }
@@ -54,7 +38,7 @@ export default function Album({ baseUrl, user, album }) {
   return user ? (
     <>
       <Head>
-        <title>{username} | Obras em {album.name} </title>
+        <title>{username} | Artwork in {album.name} </title>
       </Head>
       <ArtistInfo user={user} baseUrl={baseUrl} />
       <Space h='xl' />
@@ -63,7 +47,7 @@ export default function Album({ baseUrl, user, album }) {
       <Space h='sm' />
       <Container size='xl'>
         <Title>
-          {album.name ? (<>Obras em <em>{album.name}</em></>) : (<>Obras do álbum</>)}
+          {album.name ? (<>Artwork in <em>{album.name}</em></>) : (<>Artworks</>)}
         </Title>
         <ArtsGrid arts={album.arts.map((art) => (
           <ArtCard key={art.id} art={art} baseUrl={baseUrl} />

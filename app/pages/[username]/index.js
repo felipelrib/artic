@@ -14,33 +14,16 @@ import ArtsGrid from '../../components/ArtsGrid';
 
 import AlbumCard from '../../components/AlbumCard';
 
-// TODO: Add user data to context
-async function getUserByUsername(username) {
-	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
-	if (response.ok) {
-		let users = await response.json();
-		if (users.length !== 0) {
-			return users[0];
-		}
-	}
-	return null;
-}
+const { getUser } = require('../../services/user.js');
 
-async function getAlbumsByUserId(userId) {
-	const response = await fetch(process.env.STRAPI_API_URL + `/albums?artic_user.id=${userId}`);
-	if (response.ok) {
-		let albums = await response.json();
-		return albums;
-	}
-	return null;
-}
+const { getUserAlbums } = require('../../services/album.js');
 
 export async function getServerSideProps({ params }) {
-	const user = await getUserByUsername(params.username);
+	const user = await getUser(params.username);
 	if (user == null) {
 		return { notFound: true };
 	}
-	const albums = await getAlbumsByUserId(user.id);
+	const albums = await getUserAlbums(user.id);
 	if (albums == null) {
 		return { notFound: true };
 	}
