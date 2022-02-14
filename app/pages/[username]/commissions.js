@@ -11,7 +11,7 @@ import * as userService from '../../services/user';
 
 const DateText = ({ datetime }) => {
   let date = new Date(datetime);
-  let o = new Intl.DateTimeFormat("pt" , {
+  let o = new Intl.DateTimeFormat("en" , {
     dateStyle: "medium"
   });
   return (<Text>{o.format(date)}</Text>);
@@ -22,13 +22,13 @@ const StatusText = ({accepted, uploaded, className}) => {
   let text;
   if (accepted === null || accepted === undefined) {
     color = "orange";
-    text = "Pendente";
+    text = "Pending";
   } else if (!uploaded) {
     color = accepted ? "orange" : "red";
-    text = accepted ? "Em progresso" : "Rejeitada";
+    text = accepted ? "In progress" : "Rejected";
   } else {
     color = "black";
-    text = "Concluída";
+    text = "Done";
   }
   return (
     <Text size="md" weight={700} style={{color: color}} className={className}>
@@ -86,7 +86,7 @@ function CommissionCard({commission, received}) {
           <Group position="center" style={{ pointerEvents: 'none', width: "100%" }}>
             <FaFileImage />
             <Text size="sm" inline>
-              Clique para selecionar o arquivo, ou solte-o aqui
+              Click to select file or drag and drop it here
             </Text>
           </Group>
         )}
@@ -153,9 +153,9 @@ export default function Commissions({ requested, received }) {
     <Head><title>Encomendas</title></Head>
     <Container fluid>
       <Space h="lg"/>
-      <CommissionSection title="Pedidos recebidos" commissions={received} pageSize={sectionPageSize} cardProps={{received: true}}/>
+      <CommissionSection title="Requests received" commissions={received} pageSize={sectionPageSize} cardProps={{received: true}}/>
       <Space h="lg"/>
-      <CommissionSection title="Pedidos feitos" commissions={requested} pageSize={sectionPageSize} />
+      <CommissionSection title="Requests made" commissions={requested} pageSize={sectionPageSize} />
     </Container>
   </>);
 }

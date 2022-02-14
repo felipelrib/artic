@@ -26,28 +26,24 @@ export default function AlbumCard({ baseUrl, album }) {
 
   return (
     <Container key={album.id} m='sm' size='xs'>
-      <Card shadow='md' withBorder>
-        <Card.Section>
-          <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
-        </Card.Section>
+      <Link href={`${username}/album/${album.id}`} passHref>
+        <Card shadow='md' withBorder component='a'>
+          <Card.Section>
+            <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
+          </Card.Section>
 
-        <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-          <Text weight={500}>{album.name} ({album.arts.length})</Text>
-        </Group>
+          <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+            <Text weight={500}>{album.name} ({album.arts.length})</Text>
+          </Group>
 
-        {album.description && (
-          <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
-            {album.description}
-          </Text>
-        )}
+          {album.description && (
+            <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
+              {album.description}
+            </Text>
+          )}
 
-        <Button
-          variant='light'
-          color='blue'
-          fullWidth style={{ marginTop: 14 }}>
-          <Link href={`${username}/album/${album.id}`}>Ver mais</Link>
-        </Button>
-      </Card>
+        </Card>
+      </Link>
     </Container>
   );
 }
