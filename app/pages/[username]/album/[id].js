@@ -16,6 +16,8 @@ import ArtsGrid from '../../../components/ArtsGrid';
 
 import ArtCard from '../../../components/ArtCard';
 
+const { getUser } = require('../../../services/user.js');
+
 async function getAlbumById(albumId) {
   const response = await fetch(process.env.STRAPI_API_URL + `/albums/${albumId}`);
   if (response.ok) {
@@ -25,19 +27,8 @@ async function getAlbumById(albumId) {
   return null;
 }
 
-async function getUserByUsername(username) {
-	const response = await fetch(process.env.STRAPI_API_URL + `/artic-users/?Username=${username}`);
-	if (response.ok) {
-		let users = await response.json();
-		if (users.length !== 0) {
-			return users[0];
-		}
-	}
-	return null;
-}
-
 export async function getServerSideProps({ params }) {
-  const user = await getUserByUsername(params.username);
+  const user = await getUser(params.username);
   const album = await getAlbumById(params.id);
   if(user == null || album == null) {
     return { notFound: true };
