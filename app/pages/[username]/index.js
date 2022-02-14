@@ -2,11 +2,7 @@ import { useRouter } from 'next/router';
 
 import Head from 'next/head';
 
-import {
-	Divider,
-	Space,
-	Text
-} from '@mantine/core';
+import { Divider, Space, Text } from '@mantine/core';
 
 import ArtistInfo from '../../components/ArtistInfo';
 
@@ -36,18 +32,26 @@ export default function Index({ baseUrl, user, albums }) {
 	const router = useRouter();
 	const { username } = router.query;
 
-	return (<>
-		<Head>
-			<title>{username} | Álbuns</title>
-		</Head>
-		<ArtistInfo user={user} baseUrl={baseUrl} />
-		<Space h='xl' />
-		<Divider size='sm' />
-		<Space h='xl' />
-		<Space h='sm' />
-		<ArtsGrid arts={albums.map((album) => (
-			<AlbumCard key={album.id} album={album} baseUrl={baseUrl} />
-		))} />
-	</>
+	return (
+		<>
+			<Head>
+				<title>{username} | Álbuns</title>
+			</Head>
+			<ArtistInfo user={user} baseUrl={baseUrl} />
+			<Space h='xl' />
+			<Divider size='sm' />
+			<Space h='xl' />
+			<Space h='sm' />
+			<ArtsGrid
+				arts={albums.map((album) => (
+					<AlbumCard
+						className='album-card'
+						key={album.id}
+						album={album}
+						baseUrl={baseUrl}
+					/>
+				))}
+			/>
+		</>
 	);
 }

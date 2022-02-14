@@ -4,10 +4,7 @@ const testUsername = 'rafaelpardini';
 
 describe('User Page', () => {
 	beforeEach(() => {
-		cy.fixture('user/user.json').then((user) => {
-			cy.intercept('GET', `/artic-users?Username=*`, user).as('getUser');
-			cy.visit(`/${testUsername}`);
-		});
+		cy.visit(`/${testUsername}`);
 	});
 
 	it('should have current url equal to homepage url', () => {
@@ -19,8 +16,20 @@ describe('User Page', () => {
 	});
 
 	it('should have basic user info', () => {
-		cy.wait('@getUser').then((user) => {
-			expect(user.Username).to.not.be.null.and.to.eq(testUsername);
-		});
+		cy.get('#user-name').should('contain.text', 'Rafael');
+		cy.get('#user-username').should('contain.text', testUsername);
+		cy.get('#user-photo').should('not.be', null);
+		cy.get('#user-bio').should('contain.text', 'Estudante');
+	});
+
+	it('should have user albums', () => {
+		cy.get('.album-card').should('not.be', null);
+	});
+
+	it('should show first album artworks', () => {
+		cy.get('.album-card').first().click();
+
+		cy.get('#album-listing-title').should('contain.text', 'Artwork in');
+		cy.get('.art-card').should('have.length.greaterThan', 0);
 	});
 });
