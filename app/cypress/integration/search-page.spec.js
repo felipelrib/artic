@@ -8,7 +8,7 @@ describe('Search Page', () => {
 		cy.get('#search-bar').should('be.visible').clear();
 	});
 
-	it('should have current url equal to homepage url', () => {
+	it('should have current url equal to search url', () => {
 		cy.url().should('eq', 'http://localhost:3000/search');
 	});
 

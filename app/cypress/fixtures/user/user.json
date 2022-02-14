@@ -1,0 +1,426 @@
+{
+  "id": 4,
+  "Username": "rafaelpardini",
+  "Name": "Rafael",
+  "Bio": "Estudante de ciência da computação, fotógrafo e pintor.",
+  "created_at": "2021-11-21T23:30:25.384Z",
+  "updated_at": "2022-01-10T16:46:09.963Z",
+  "Picture": {
+    "id": 2,
+    "name": "PracaEstacaoMonumentoBH_(cropped).jpg",
+    "alternativeText": "",
+    "caption": "",
+    "width": 774,
+    "height": 513,
+    "formats": {
+      "thumbnail": {
+        "name": "thumbnail_PracaEstacaoMonumentoBH_(cropped).jpg",
+        "hash": "thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "width": 235,
+        "height": 156,
+        "size": 9.6,
+        "path": null,
+        "url": "/uploads/thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+      },
+      "medium": {
+        "name": "medium_PracaEstacaoMonumentoBH_(cropped).jpg",
+        "hash": "medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "width": 750,
+        "height": 497,
+        "size": 76.11,
+        "path": null,
+        "url": "/uploads/medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+      },
+      "small": {
+        "name": "small_PracaEstacaoMonumentoBH_(cropped).jpg",
+        "hash": "small_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "width": 500,
+        "height": 331,
+        "size": 35.5,
+        "path": null,
+        "url": "/uploads/small_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+      }
+    },
+    "hash": "Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+    "ext": ".jpg",
+    "mime": "image/jpeg",
+    "size": 84.16,
+    "url": "/uploads/Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg",
+    "previewUrl": null,
+    "provider": "local",
+    "provider_metadata": null,
+    "created_at": "2021-11-21T23:30:13.155Z",
+    "updated_at": "2021-11-21T23:30:13.192Z"
+  },
+  "albums": [
+    {
+      "id": 1,
+      "artic_user": 4,
+      "name": "Artes Favoritas",
+      "published_at": "2022-01-09T15:16:32.407Z",
+      "created_at": "2022-01-09T15:01:59.512Z",
+      "updated_at": "2022-01-10T21:53:36.992Z"
+    }
+  ],
+  "arts": [
+    {
+      "id": 1,
+      "artic_user": 4,
+      "name": "Noite Estrelada",
+      "description": "Pintura de Van Gogh. Retrata a vista da janela de um quarto do hospício de Saint-Rémy-de-Provence, pouco antes do nascer do sol, com a adição de um vilarejo idealizado pelo artista",
+      "art_type": null,
+      "views": "3",
+      "published_at": "2021-11-22T18:27:16.083Z",
+      "created_at": "2021-11-22T18:24:07.674Z",
+      "updated_at": "2022-02-13T22:34:00.775Z",
+      "media": {
+        "id": 10,
+        "name": "starry-night.jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 2400,
+        "height": 1874,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_starry-night.jpg",
+            "hash": "thumbnail_starry_night_45ff5a5697",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 200,
+            "height": 156,
+            "size": 13.56,
+            "path": null,
+            "url": "/uploads/thumbnail_starry_night_45ff5a5697.jpg"
+          },
+          "large": {
+            "name": "large_starry-night.jpg",
+            "hash": "large_starry_night_45ff5a5697",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 1000,
+            "height": 781,
+            "size": 298.9,
+            "path": null,
+            "url": "/uploads/large_starry_night_45ff5a5697.jpg"
+          },
+          "medium": {
+            "name": "medium_starry-night.jpg",
+            "hash": "medium_starry_night_45ff5a5697",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 750,
+            "height": 586,
+            "size": 173.57,
+            "path": null,
+            "url": "/uploads/medium_starry_night_45ff5a5697.jpg"
+          },
+          "small": {
+            "name": "small_starry-night.jpg",
+            "hash": "small_starry_night_45ff5a5697",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 500,
+            "height": 390,
+            "size": 77.74,
+            "path": null,
+            "url": "/uploads/small_starry_night_45ff5a5697.jpg"
+          }
+        },
+        "hash": "starry_night_45ff5a5697",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 1590.38,
+        "url": "/uploads/starry_night_45ff5a5697.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-11-22T19:41:32.501Z",
+        "updated_at": "2021-11-22T19:41:32.509Z"
+      }
+    },
+    {
+      "id": 2,
+      "artic_user": 4,
+      "name": "Mona Lisa",
+      "description": "Sua pintura foi iniciada em 1503 (terminando-a três ou quatro anos mais tarde) e é nesta obra que o artista melhor concebeu a técnica do sfumato. O quadro representa uma mulher com uma expressão introspectiva e um pouco tímida.",
+      "art_type": null,
+      "views": "2",
+      "published_at": "2021-11-22T19:00:23.053Z",
+      "created_at": "2021-11-22T19:00:15.741Z",
+      "updated_at": "2022-01-11T01:25:48.312Z",
+      "media": {
+        "id": 9,
+        "name": "mona-lisa.jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 770,
+        "height": 876,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_mona-lisa.jpg",
+            "hash": "thumbnail_mona_lisa_d6e61f5b1f",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 137,
+            "height": 156,
+            "size": 5.08,
+            "path": null,
+            "url": "/uploads/thumbnail_mona_lisa_d6e61f5b1f.jpg"
+          },
+          "medium": {
+            "name": "medium_mona-lisa.jpg",
+            "hash": "medium_mona_lisa_d6e61f5b1f",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 659,
+            "height": 750,
+            "size": 107.85,
+            "path": null,
+            "url": "/uploads/medium_mona_lisa_d6e61f5b1f.jpg"
+          },
+          "small": {
+            "name": "small_mona-lisa.jpg",
+            "hash": "small_mona_lisa_d6e61f5b1f",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 439,
+            "height": 500,
+            "size": 44.07,
+            "path": null,
+            "url": "/uploads/small_mona_lisa_d6e61f5b1f.jpg"
+          }
+        },
+        "hash": "mona_lisa_d6e61f5b1f",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 151.9,
+        "url": "/uploads/mona_lisa_d6e61f5b1f.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-11-22T19:41:32.091Z",
+        "updated_at": "2021-11-22T19:41:32.109Z"
+      }
+    },
+    {
+      "id": 3,
+      "artic_user": 4,
+      "name": "Mineirão",
+      "description": "O Estádio Governador Magalhães Pinto, mais conhecido como Mineirão, é um estádio de futebol localizado em Belo Horizonte, Minas Gerais, onde o Clube Atlético Mineiro e Cruzeiro Esporte Clube mandam os seus jogos. Inaugurado em 1965, é o quinto maior estádio do Brasil, já tendo sediado cinco finais da Copa Libertadores, uma Copa Intercontinental e escolhido como uma das sedes da Copa do Mundo FIFA de 2014. Em 2003, foi tombado pelo Conselho Deliberativo do Patrimônio Cultural do Município de Belo Horizonte.",
+      "art_type": null,
+      "views": "2",
+      "published_at": "2022-01-09T16:07:33.243Z",
+      "created_at": "2022-01-09T16:07:31.346Z",
+      "updated_at": "2022-01-11T01:26:08.233Z",
+      "media": {
+        "id": 3,
+        "name": "Mineirão_Pampulha_Panorama.jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 2048,
+        "height": 615,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Mineirão_Pampulha_Panorama.jpg",
+            "hash": "thumbnail_Mineirao_Pampulha_Panorama_fa1c4d99f3",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 245,
+            "height": 74,
+            "size": 7.36,
+            "path": null,
+            "url": "/uploads/thumbnail_Mineirao_Pampulha_Panorama_fa1c4d99f3.jpg"
+          },
+          "large": {
+            "name": "large_Mineirão_Pampulha_Panorama.jpg",
+            "hash": "large_Mineirao_Pampulha_Panorama_fa1c4d99f3",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 1000,
+            "height": 300,
+            "size": 103.56,
+            "path": null,
+            "url": "/uploads/large_Mineirao_Pampulha_Panorama_fa1c4d99f3.jpg"
+          },
+          "medium": {
+            "name": "medium_Mineirão_Pampulha_Panorama.jpg",
+            "hash": "medium_Mineirao_Pampulha_Panorama_fa1c4d99f3",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 750,
+            "height": 225,
+            "size": 60.56,
+            "path": null,
+            "url": "/uploads/medium_Mineirao_Pampulha_Panorama_fa1c4d99f3.jpg"
+          },
+          "small": {
+            "name": "small_Mineirão_Pampulha_Panorama.jpg",
+            "hash": "small_Mineirao_Pampulha_Panorama_fa1c4d99f3",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 500,
+            "height": 150,
+            "size": 27.09,
+            "path": null,
+            "url": "/uploads/small_Mineirao_Pampulha_Panorama_fa1c4d99f3.jpg"
+          }
+        },
+        "hash": "Mineirao_Pampulha_Panorama_fa1c4d99f3",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 417.24,
+        "url": "/uploads/Mineirao_Pampulha_Panorama_fa1c4d99f3.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-11-21T23:30:13.238Z",
+        "updated_at": "2021-11-21T23:30:13.312Z"
+      }
+    },
+    {
+      "id": 4,
+      "artic_user": 4,
+      "name": "Praça da Estação",
+      "description": "Praça Rui Barbosa é uma praça situada na região central da cidade de Belo Horizonte. É mais conhecida como Praça da Estação por estar localizada em frente ao prédio da antiga estação da Estrada de Ferro Central do Brasil, hoje Museu de Artes e Ofícios (MAO). A entrada da Estação Central do Metrô de Belo Horizonte também está situada nesta praça.",
+      "art_type": null,
+      "views": null,
+      "published_at": "2022-01-09T16:07:56.845Z",
+      "created_at": "2022-01-09T16:07:55.274Z",
+      "updated_at": "2022-01-10T16:46:09.953Z",
+      "media": {
+        "id": 2,
+        "name": "PracaEstacaoMonumentoBH_(cropped).jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 774,
+        "height": 513,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_PracaEstacaoMonumentoBH_(cropped).jpg",
+            "hash": "thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 235,
+            "height": 156,
+            "size": 9.6,
+            "path": null,
+            "url": "/uploads/thumbnail_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+          },
+          "medium": {
+            "name": "medium_PracaEstacaoMonumentoBH_(cropped).jpg",
+            "hash": "medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 750,
+            "height": 497,
+            "size": 76.11,
+            "path": null,
+            "url": "/uploads/medium_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+          },
+          "small": {
+            "name": "small_PracaEstacaoMonumentoBH_(cropped).jpg",
+            "hash": "small_Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 500,
+            "height": 331,
+            "size": 35.5,
+            "path": null,
+            "url": "/uploads/small_Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg"
+          }
+        },
+        "hash": "Praca_Estacao_Monumento_BH_cropped_ac5104a345",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 84.16,
+        "url": "/uploads/Praca_Estacao_Monumento_BH_cropped_ac5104a345.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-11-21T23:30:13.155Z",
+        "updated_at": "2021-11-21T23:30:13.192Z"
+      }
+    },
+    {
+      "id": 5,
+      "artic_user": 4,
+      "name": "Belo Horizonte",
+      "description": "Belo Horizonte é um município brasileiro e a capital do estado de Minas Gerais. Sua população estimada pelo IBGE para 1.º de julho de 2021 era de 2 530 701 habitantes, sendo o sexto município mais populoso do país, o terceiro da Região Sudeste e primeiro de seu estado. Com uma área de aproximadamente 331 km², possui uma geografia diversificada, com morros e baixadas. Com uma distância de 716 quilômetros de Brasília, é a segunda capital de estado mais próxima da capital federal, depois de Goiânia. ",
+      "art_type": null,
+      "views": "1",
+      "published_at": "2022-01-09T16:08:17.532Z",
+      "created_at": "2022-01-09T16:08:15.915Z",
+      "updated_at": "2022-01-10T21:55:56.117Z",
+      "media": {
+        "id": 4,
+        "name": "Belo_Horizonte_(2).jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 1024,
+        "height": 683,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Belo_Horizonte_(2).jpg",
+            "hash": "thumbnail_Belo_Horizonte_2_f9fc20197c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 234,
+            "height": 156,
+            "size": 14.81,
+            "path": null,
+            "url": "/uploads/thumbnail_Belo_Horizonte_2_f9fc20197c.jpg"
+          },
+          "large": {
+            "name": "large_Belo_Horizonte_(2).jpg",
+            "hash": "large_Belo_Horizonte_2_f9fc20197c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 1000,
+            "height": 667,
+            "size": 253.91,
+            "path": null,
+            "url": "/uploads/large_Belo_Horizonte_2_f9fc20197c.jpg"
+          },
+          "medium": {
+            "name": "medium_Belo_Horizonte_(2).jpg",
+            "hash": "medium_Belo_Horizonte_2_f9fc20197c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 750,
+            "height": 500,
+            "size": 147.85,
+            "path": null,
+            "url": "/uploads/medium_Belo_Horizonte_2_f9fc20197c.jpg"
+          },
+          "small": {
+            "name": "small_Belo_Horizonte_(2).jpg",
+            "hash": "small_Belo_Horizonte_2_f9fc20197c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "width": 500,
+            "height": 333,
+            "size": 64.1,
+            "path": null,
+            "url": "/uploads/small_Belo_Horizonte_2_f9fc20197c.jpg"
+          }
+        },
+        "hash": "Belo_Horizonte_2_f9fc20197c",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 272.81,
+        "url": "/uploads/Belo_Horizonte_2_f9fc20197c.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-11-21T23:30:13.385Z",
+        "updated_at": "2021-11-21T23:30:13.404Z"
+      }
+    }
+  ]
+}
