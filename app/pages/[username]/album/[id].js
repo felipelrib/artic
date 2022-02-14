@@ -27,7 +27,7 @@ export async function getServerSideProps({ params }) {
     return { notFound: true };
   }
   return {
-    props: { baseUrl: process.env.STRAPI_API_URL, user: user, album: album },
+    props: { baseUrl: process.env.STRAPI_MEDIA_BASE_URL, user: user, album: album },
   };
 }
 

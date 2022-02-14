@@ -16,7 +16,7 @@ async function fetchArtwork(id) {
     if (response.ok) {
         let artwork = await response.json();
         if (artwork) {
-            artwork.media.url = `${process.env.STRAPI_API_URL}${artwork.media.url}`;
+            artwork.media.url = `${process.env.STRAPI_MEDIA_BASE_URL}${artwork.media.url}`;
             return artwork;
         }
     }
@@ -34,7 +34,7 @@ export async function getServerSideProps({ params }) {
         });
         return {
             props: {
-                artwork: artwork 
+                artwork: artwork
             }
         };
     } else {
@@ -80,7 +80,7 @@ export default function Artwork({ artwork }) {
                              Present in albums:
                         </Title>
                         <List size="md">
-                            {artwork.albums.map((album) => 
+                            {artwork.albums.map((album) =>
                                 <List.Item key={album.id}>
                                     <Link href={`/${artwork.artic_user.Username}/album/${album.id}`}>
                                         {album.name}
