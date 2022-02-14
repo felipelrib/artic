@@ -76,6 +76,7 @@ export default function Search({ apiBaseURL }) {
 				<Center>
 					<form onSubmit={form.onSubmit((values) => setSearchText(values.search))}>
 						<TextInput
+							id='search-bar'
 							icon={<FaSearch />}
 							placeholder='Pesquise por um termo ou username'
 							style={{ width: '50vw' }}
@@ -85,11 +86,11 @@ export default function Search({ apiBaseURL }) {
 				</Center>
 				<Space h='lg' />
 				<Center>
-					<Title>Resultados</Title>
+					<Title id='search-page-content-title'>Resultados</Title>
 				</Center>
 				<Space h='md' />
 				<Container fluid>
-					<Center>
+					<Center id='search-results'>
 						<SimpleGrid
 							cols={searchResults.length > 3 ? 3 : searchResults.length || 1}
 							breakpoints={[
