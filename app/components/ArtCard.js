@@ -17,7 +17,7 @@ function ArtCard({ baseUrl, art, description, tags, artistName }) {
   const secondaryColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
-  const photo = art.media ? `${baseUrl}${art.media.url}` : undefined;
+  const photo = art && art.media ? `${baseUrl}${art.media.url}` : undefined;
 
   return (
     <Container key={art.id} m='sm' size='xs'>

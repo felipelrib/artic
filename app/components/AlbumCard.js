@@ -22,7 +22,7 @@ export default function AlbumCard({ baseUrl, album }) {
   const secondaryColor =
     theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
-  const photo = album.arts[0].media ? `${baseUrl}${album.arts[0].media.url}` : undefined;
+  const photo = album && album.arts && album.arts[0] && album.arts[0].media ? `${baseUrl}${album.arts[0].media.url}` : undefined;
 
   return (
     <Container key={album.id} m='sm' size='xs'>

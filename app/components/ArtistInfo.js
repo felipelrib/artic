@@ -20,7 +20,7 @@ function convertDateToPT(dateString) {
 }
 
 export default function ArtistInfo({ baseUrl, user }) {
-  const photo = user.Picture ? `${baseUrl}${user.Picture.url}` : undefined;
+  const photo = user && user.Picture ? `${baseUrl}${user.Picture.url}` : undefined;
   return (
     <Container size='md' padding='sm'>
       <Card withBorder>
