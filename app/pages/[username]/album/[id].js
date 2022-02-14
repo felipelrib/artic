@@ -18,18 +18,11 @@ import ArtCard from '../../../components/ArtCard';
 
 const { getUser } = require('../../../services/user.js');
 
-async function getAlbumById(albumId) {
-  const response = await fetch(process.env.STRAPI_API_URL + `/albums/${albumId}`);
-  if (response.ok) {
-    let album = await response.json();
-    return album;
-  }
-  return null;
-}
+const { getAlbum } = require('../../../services/album.js');
 
 export async function getServerSideProps({ params }) {
   const user = await getUser(params.username);
-  const album = await getAlbumById(params.id);
+  const album = await getAlbum(params.id);
   if(user == null || album == null) {
     return { notFound: true };
   }
