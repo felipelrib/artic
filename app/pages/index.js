@@ -17,11 +17,13 @@ export default function Home() {
 				<Container>
 					<Center>
 						<Group position='center' direction='column'>
-							<Title order={1}>Artic</Title>
-							<Text align='center'>
+							<Title id='home-name' order={1}>
+								Artic
+							</Title>
+							<Text id='home-description' align='center'>
 								Making life easier for art, and art easier for life.
 							</Text>
-							<Group position='center' direction='row'>
+							<Group id='home-actions' position='center' direction='row'>
 								<Link href={'/search'} passHref>
 									<Button
 										variant='gradient'
