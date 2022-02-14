@@ -11,7 +11,7 @@ import {
   Badge
 } from '@mantine/core';
 
-function ArtCard({ baseUrl, art, description, tags }) {
+function ArtCard({ baseUrl, art, description, tags, artistName }) {
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -26,6 +26,7 @@ function ArtCard({ baseUrl, art, description, tags }) {
           <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
         </Card.Section>
 
+
         <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
           <Text weight={500}>{art.name}</Text>
           {tags && art.tags?.map((tag) => (
@@ -36,6 +37,10 @@ function ArtCard({ baseUrl, art, description, tags }) {
             </Group>
           ))}
         </Group>
+
+        {artistName && (
+          <Text size="sm" style={{ lineHeight: 1.5 }}>por {art.artic_user.Name}</Text>
+        )}
 
         {description && art.description && (
           <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
@@ -51,6 +56,6 @@ function ArtCard({ baseUrl, art, description, tags }) {
   );
 }
 
-ArtCard.defaultProps = { description: true, tags: true}
+ArtCard.defaultProps = { description: true, tags: true, artistName: false }
 
 export default ArtCard;

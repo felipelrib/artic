@@ -80,7 +80,7 @@ export default function Search({ apiBaseURL }) {
           ]}>
             {searchResults.length ?
               searchResults.slice((activePage-1)*pageSize).map((art) => 
-              <ArtCard baseUrl={apiBaseURL} art={art} key={art.id} description={false} tags={false} />
+              <ArtCard baseUrl={apiBaseURL} art={art} key={art.id} description={false} tags={false} artistName={true} />
               ) : "Não há resultados para o termo pesquisado."
             }
           </SimpleGrid>
