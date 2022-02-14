@@ -20,7 +20,7 @@ export default function Home() {
               <Title order={1}>Artic</Title>
               <Text align="center">Making life easier for art, and art easier for life.</Text>
               <Group position="center" direction="row">
-                <Link href={'/search'}>
+                <Link href={'/search'} passHref>
                   <Button variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }} size="lg">
                     Search for art
                   </Button>
