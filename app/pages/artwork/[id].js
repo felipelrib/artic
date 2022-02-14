@@ -5,10 +5,10 @@ import axios from "axios";
 
 const DateText = ({ datetime }) => {
     let date = new Date(datetime);
-    let o = new Intl.DateTimeFormat("pt" , {
+    let o = new Intl.DateTimeFormat("en" , {
       dateStyle: "long"
     });
-    return (<Text align="right">em {o.format(date)}</Text>);
+    return (<Text align="right">in {o.format(date)}</Text>);
 }
 
 async function fetchArtwork(id) {
@@ -63,7 +63,7 @@ export default function Artwork({ artwork }) {
                                 {artwork.name}
                             </Title>
                             <Text weight={600} align="right">
-                                por <Link href={`/${artwork.artic_user.Username}`}>{artwork.artic_user.Name}</Link>
+                                by <Link href={`/${artwork.artic_user.Username}`}>{artwork.artic_user.Name}</Link>
                             </Text>
                         </Group>
                     </Grid.Col>
@@ -77,7 +77,7 @@ export default function Artwork({ artwork }) {
                     </Grid.Col>
                     <Grid.Col span={12}>
                         <Title order={3}>
-                            Presente nos álbuns:
+                             Present in albums:
                         </Title>
                         <List size="md">
                             {artwork.albums.map((album) => 

@@ -16,7 +16,7 @@ import {
 
 function convertDateToPT(dateString) {
   const date = new Date(dateString);
-  return `${getMonthsNames('pt')[date.getMonth()]} de ${date.getFullYear()}`;
+  return `${getMonthsNames('en')[date.getMonth()]} ${date.getFullYear()}`;
 }
 
 export default function ArtistInfo({ baseUrl, user }) {
@@ -44,13 +44,13 @@ export default function ArtistInfo({ baseUrl, user }) {
               )}
               {user.created_at && (
                 <Text color='dimmed' style={{ lineHeight: 1.5 }}>
-                  Entrou em {convertDateToPT(user.created_at)}
+                  Joined {convertDateToPT(user.created_at)}
                 </Text>
               )}
               {user.Bio && <Card.Section>{user.Bio}</Card.Section>}
             </Card.Section>
           )}
-          <Card.Section><Button>Encomendar</Button></Card.Section>
+          <Card.Section><Button>Request</Button></Card.Section>
         </Group>
       </Card>
     </Container>

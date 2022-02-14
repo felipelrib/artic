@@ -21,32 +21,31 @@ export default function ArtCard({ baseUrl, art }) {
 
   return (
     <Container key={art.id} m='sm' size='xs'>
-      <Card shadow='md' withBorder>
-        <Card.Section>
-          <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
-        </Card.Section>
+      <Link href={`/artwork/${art.id}`} passHref>
+        <Card shadow='md' withBorder component='a'>
+          <Card.Section>
+            <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
+          </Card.Section>
 
-        <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-          <Text weight={500}>{art.name}</Text>
-          <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-            {art.tags?.map((tag) => (
-              <Badge key={tag.id} color='pink' variant='light'>
-                {tag.name}
-              </Badge>
-            ))}
+          <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+            <Text weight={500}>{art.name}</Text>
+            <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+              {art.tags?.map((tag) => (
+                <Badge key={tag.id} color='pink' variant='light'>
+                  {tag.name}
+                </Badge>
+              ))}
+            </Group>
           </Group>
-        </Group>
 
-        {art.description && (
-          <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
-            {art.description.length > 150 ? art.description.slice(0, 150) + ' (...)' : art.description}
-          </Text>
-        )}
+          {art.description && (
+            <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
+              {art.description.length > 150 ? art.description.slice(0, 150) + ' (...)' : art.description}
+            </Text>
+          )}
 
-        <Button variant='light' color='blue' fullWidth style={{ marginTop: 14 }}>
-          <Link href={`/artwork/${art.id}`}>Ver mais</Link>
-        </Button>
-      </Card>
-      </Container>
+        </Card>
+      </Link>
+    </Container>
   );
 }

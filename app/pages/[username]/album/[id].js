@@ -54,7 +54,7 @@ export default function Album({ baseUrl, user, album }) {
   return user ? (
     <>
       <Head>
-        <title>{username} | Obras em {album.name} </title>
+        <title>{username} | Artwork in {album.name} </title>
       </Head>
       <ArtistInfo user={user} baseUrl={baseUrl} />
       <Space h='xl' />
@@ -63,7 +63,7 @@ export default function Album({ baseUrl, user, album }) {
       <Space h='sm' />
       <Container size='xl'>
         <Title>
-          {album.name ? (<>Obras em <em>{album.name}</em></>) : (<>Obras do álbum</>)}
+          {album.name ? (<>Artwork in <em>{album.name}</em></>) : (<>Artworks</>)}
         </Title>
         <ArtsGrid arts={album.arts.map((art) => (
           <ArtCard key={art.id} art={art} baseUrl={baseUrl} />
