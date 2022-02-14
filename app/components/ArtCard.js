@@ -29,13 +29,15 @@ function ArtCard({ baseUrl, art, description, tags, artistName }) {
 
         <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
           <Text weight={500}>{art.name}</Text>
-          {tags && art.tags?.map((tag) => (
+          {tags && (
             <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+            {art.tags?.map((tag) => (
               <Badge key={tag.id} color='pink' variant='light'>
                 {tag.name}
               </Badge>
+            ))}
             </Group>
-          ))}
+          )}
         </Group>
 
         {artistName && (
