@@ -82,7 +82,7 @@ export default function Artwork({ artwork }) {
                         <List size="md">
                             {artwork.albums.map((album) => 
                                 <List.Item key={album.id}>
-                                    <Link href={`/album/${album.id}`}>
+                                    <Link href={`/${artwork.artic_user.Username}/album/${album.id}`}>
                                         {album.name}
                                     </Link>
                                 </List.Item>
