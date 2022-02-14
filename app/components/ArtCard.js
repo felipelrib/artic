@@ -40,7 +40,7 @@ function ArtCard({ baseUrl, art, description, tags, artistName }) {
             )}
           </Group>
 
-          {art.description && (
+          {description && art.description && (
             <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
               {art.description.length > 150 ? art.description.slice(0, 150) + ' (...)' : art.description}
             </Text>
