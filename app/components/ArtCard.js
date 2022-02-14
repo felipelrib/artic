@@ -11,7 +11,7 @@ import {
   Badge
 } from '@mantine/core';
 
-export default function ArtCard({ baseUrl, art }) {
+function ArtCard({ baseUrl, art, description, tags, artistName }) {
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -26,18 +26,25 @@ export default function ArtCard({ baseUrl, art }) {
           <Image src={photo} height={200} alt='Imagem descritiva do projeto' />
         </Card.Section>
 
+
         <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
           <Text weight={500}>{art.name}</Text>
-          <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+          {tags && (
+            <Group position='right' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
             {art.tags?.map((tag) => (
               <Badge key={tag.id} color='pink' variant='light'>
                 {tag.name}
               </Badge>
             ))}
-          </Group>
+            </Group>
+          )}
         </Group>
 
-        {art.description && (
+        {artistName && (
+          <Text size="sm" style={{ lineHeight: 1.5 }}>por {art.artic_user.Name}</Text>
+        )}
+
+        {description && art.description && (
           <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
             {art.description.length > 150 ? art.description.slice(0, 150) + ' (...)' : art.description}
           </Text>
@@ -47,6 +54,10 @@ export default function ArtCard({ baseUrl, art }) {
           <Link href={`/artwork/${art.id}`}>Ver mais</Link>
         </Button>
       </Card>
-      </Container>
+    </Container>
   );
 }
+
+ArtCard.defaultProps = { description: true, tags: true, artistName: false }
+
+export default ArtCard;

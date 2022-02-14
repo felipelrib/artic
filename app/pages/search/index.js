@@ -6,24 +6,7 @@ import { useForm } from '@mantine/hooks';
 import { FaSearch } from 'react-icons/fa'
 import axios from 'axios';
 import qs from 'qs';
-
-function ResultCard({mediaBaseURL, art}) {
-  return (
-    <Card 
-      style={{height: 300, width: 250}}
-      shadow='sm' 
-      withBorder
-      component="a"
-      href={`/artwork/${art.id}`}
-    >
-      <Card.Section>
-        <Image src={`${mediaBaseURL + art.media.url}`} height={160} alt={art.name} fit="contain"/>
-      </Card.Section>
-      <Title>{art.name}</Title>
-      <Text size="sm" style={{lineHeight: 1.5}}>por {art.artic_user.Name}</Text>
-    </Card>
-  );
-}
+import ArtCard from '../../components/ArtCard';
 
 export async function getServerSideProps() {
   
@@ -97,7 +80,7 @@ export default function Search({ apiBaseURL }) {
           ]}>
             {searchResults.length ?
               searchResults.slice((activePage-1)*pageSize).map((art) => 
-              <ResultCard mediaBaseURL={apiBaseURL} art={art} key={art.id}/>
+              <ArtCard baseUrl={apiBaseURL} art={art} key={art.id} description={false} tags={false} artistName={true} />
               ) : "Não há resultados para o termo pesquisado."
             }
           </SimpleGrid>

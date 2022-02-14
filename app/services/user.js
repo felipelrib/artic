@@ -9,6 +9,7 @@ const getUser = async (username) => {
     return user;
 };
 
+// TODO: Add user data to context
 const createUser = async (params) => {
     let user = null;
     const response = await api.post(`/artic-users`, params);
